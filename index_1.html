@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vignesh K — Performance Marketer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vignesh K — Performance Marketer. Google Ads, SEO and AI agentic workflows. Chennai, India.">
+  <meta property="og:title" content="Vignesh K — Performance Marketer"><meta property="og:image" content="images/ph_hero.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F6EEE3; font-family: 'DM Sans', sans-serif; }
+    a { text-decoration: none; }
+    html, body, a, button, span, div, p, h1, h2, h3, img, article, section, nav, figure { cursor: url(images/cursor.png) 2 2, auto; }
+    .display { font-family: 'Archivo Black', sans-serif; }
+    .script { font-family: 'Caveat', cursive; }
+
+    /* layout system: one container width, one section rhythm */
+    .wrap { max-width: 1160px; margin-left: auto; margin-right: auto; }
+    .sec { padding: 96px 56px; }
+    .sec-x { padding-left: 56px; padding-right: 56px; }
+    .pad-lg { padding: 56px; }
+    .pad-md { padding: 44px; }
+    .hero { height: 780px; }
+    .hero-name { top: 44px; right: 56px; }
+    .fade-m { display: none; }
+    @media (max-width: 760px) {
+      .sec { padding: 64px 22px; }
+      .sec-x { padding-left: 22px; padding-right: 22px; }
+      .pad-lg { padding: 28px 22px; }
+      .pad-md { padding: 26px 20px; }
+      .navlinks { gap: 0 16px !important; }
+      .navlinks a { font-size: 14px !important; }
+      .flowline { display: none; }
+    }
+    @media (max-width: 900px) {
+      /* phones and small tablets: photo on top with the face clear, text below it */
+      .hero { height: auto; }
+      .hero-img { position: relative !important; inset: auto !important; height: min(112vw, 600px) !important; animation: none; }
+      .fade-d { display: none; }
+      .fade-m { display: block; position: absolute; left: 0; right: 0; top: calc(min(112vw, 600px) - 190px); height: 192px; background: linear-gradient(180deg, rgba(26,13,12,0) 0%, rgba(26,13,12,0.85) 62%, #1a0d0c 96%); }
+      .hero-over { position: relative !important; inset: auto !important; margin-top: -30px; padding-bottom: 48px; }
+      .hero-inner { height: auto !important; }
+      .hero-text { position: static !important; max-width: 560px !important; }
+      .hero-name { top: calc(min(112vw, 600px) - 118px); right: 22px; }
+    }
+
+    @keyframes riseIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes dlBounce { 0%,100% { transform: translateY(0); } 40% { transform: translateY(7px); } 60% { transform: translateY(-3px); } }
+    @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(251,243,231,0.55); } 100% { box-shadow: 0 0 0 22px rgba(251,243,231,0); } }
+    @keyframes popIn { 0% { transform: scale(0.85); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08) translateY(-1.5%); } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes revealUp { from { opacity: 0; translate: 0 48px; } to { opacity: 1; translate: 0 0; } }
+    @keyframes revealSide { from { opacity: 0; translate: -60px 0; } to { opacity: 1; translate: 0 0; } }
+    @keyframes dash { to { background-position: 28px 0; } }
+    @keyframes nodePulse { 0%,100% { box-shadow: 0 0 0 0 rgba(240,168,160,0.5); } 50% { box-shadow: 0 0 0 12px rgba(240,168,160,0); } }
+    @keyframes resumePan { 0%,100% { transform: scale(1.12) translateY(3%); filter: blur(3.5px); } 50% { transform: scale(1.12) translateY(-5%); filter: blur(1.5px); } }
+    @keyframes glow { 0%,100% { opacity: 0.45; } 50% { opacity: 0.9; } }
+
+    .rise1 { animation: riseIn 0.8s ease both; }
+    .rise2 { animation: riseIn 0.8s 0.15s ease both; }
+    .rise3 { animation: riseIn 0.8s 0.3s ease both; }
+    .rise4 { animation: riseIn 0.8s 0.45s ease both; }
+    .kenburns { animation: kenburns 16s ease-in-out infinite alternate; }
+    .marquee { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+    .marquee:hover { animation-play-state: paused; }
+
+    .navlink { transition: color 0.2s ease, transform 0.2s ease; }
+    .navlink:hover { color: #F0A8A0; transform: translateY(-2px); }
+    .btn { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
+    .btn:active { transform: scale(0.95); }
+    .pill { transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
+    .pill:hover { background: #1C0D0B !important; color: #FBF3E7 !important; transform: translateY(-3px); box-shadow: 0 10px 18px rgba(0,0,0,0.3); }
+    .card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(122,20,20,0.16); }
+    .card .thumb { transition: transform 0.6s cubic-bezier(.2,.8,.2,1); }
+    .card:hover .thumb { transform: scale(1.05); }
+    .edu { transition: transform 0.25s ease, background 0.25s ease; }
+    .edu:hover { transform: translateY(-5px); background: rgba(251,243,231,0.13) !important; }
+    .tile { transition: transform 0.25s ease, background 0.25s ease; }
+    .tile:hover { transform: translateY(-6px) rotate(-1deg); background: rgba(251,243,231,0.12) !important; }
+    .tile:hover .badge { animation: popIn 0.4s ease; }
+    .reel { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .reel:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 22px 40px rgba(0,0,0,0.3); }
+    .reel:active { transform: scale(0.97); }
+    .reel .thumb { transition: transform 0.6s cubic-bezier(.2,.8,.2,1); }
+    .reel:hover .thumb { transform: scale(1.08); }
+    .reel .play { transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0.92; }
+    .reel:hover .play { transform: scale(1.18); opacity: 1; }
+    .flowline { height: 3px; background-image: linear-gradient(90deg, #F0A8A0 50%, transparent 50%); background-size: 14px 3px; animation: dash 0.9s linear infinite; }
+    .node { animation: nodePulse 2.6s ease-in-out infinite; transition: transform 0.25s ease; }
+    .node:hover { transform: translateY(-6px) scale(1.06); }
+    .shot { transition: transform 0.5s cubic-bezier(.2,.8,.2,1), box-shadow 0.5s ease; }
+    .shot:hover { transform: scale(1.015); box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+    .resume { transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease; }
+    .resume:hover { transform: translateY(-8px); box-shadow: 0 34px 70px rgba(0,0,0,0.5); }
+    .resume:active { transform: scale(0.97); }
+    .resume .page { animation: resumePan 9s ease-in-out infinite; }
+    .resume:hover .dlicon { animation: dlBounce 0.7s ease infinite; }
+    .dl { animation: pulseRing 2s ease-out infinite; }
+    .dlicon { display: inline-block; }
+    .glow { animation: glow 4s ease-in-out infinite; }
+
+    /* flying paper-plane cursor (switched on by the script, mouse devices only) */
+    .fly-plane, .fly-dot { position: fixed; left: 0; top: 0; pointer-events: none; opacity: 0; will-change: transform, opacity; }
+    html.fly-on, html.fly-on * { cursor: none !important; }
+
+    @supports (animation-timeline: view()) {
+      .rv { animation: revealUp linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+      .rvs { animation: revealSide linear both; animation-timeline: view(); animation-range: entry 0% entry 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+
+
+<div style="width: 100%; box-sizing: border-box; background: #F6EEE3; color: #241512; overflow: hidden;">
+
+  <!-- ================= NAV ================= -->
+  <nav class="sec-x" style="position: relative; z-index: 10; box-sizing: border-box; background: #1a0d0c; padding-top: 14px; padding-bottom: 14px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between;">
+      <span class="display" style="color: #FBF3E7; font-size: 20px; letter-spacing: 0.02em;">VIGNESH K</span>
+      <div class="navlinks" style="display: flex; flex-wrap: wrap; gap: 0 26px;">
+        <a class="navlink" href="#about" style="color: #F3DED9; font-size: 15px; font-weight: 600; padding: 12px 0;">About</a>
+        <a class="navlink" href="#experience" style="color: #F3DED9; font-size: 15px; font-weight: 600; padding: 12px 0;">Experience</a>
+        <a class="navlink" href="#work" style="color: #F3DED9; font-size: 15px; font-weight: 600; padding: 12px 0;">Work</a>
+        <a class="navlink" href="#tools" style="color: #F3DED9; font-size: 15px; font-weight: 600; padding: 12px 0;">Tools</a>
+        <a class="navlink" href="#contact" style="color: #F3DED9; font-size: 15px; font-weight: 600; padding: 12px 0;">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO: full-bleed banner photo ================= -->
+  <section class="hero" style="position: relative; width: 100%; box-sizing: border-box; overflow: hidden; background: #1a0d0c;">
+    <img class="kenburns hero-img" src="images/ph_hero.jpg" alt="Vignesh K" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;">
+    <div class="fade-d" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,8,7,0.15) 0%, rgba(20,8,7,0.35) 45%, rgba(15,6,5,0.92) 100%);"></div>
+    <div class="fade-d" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,6,5,0.7) 0%, rgba(15,6,5,0.25) 32%, rgba(15,6,5,0) 50%);"></div>
+    <div class="fade-m" aria-hidden="true"></div>
+
+    <div class="rise1 hero-name" style="position: absolute; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; z-index: 2;">
+      <span class="script" style="color: #F0A8A0; font-size: 28px; line-height: 1;">I'm</span>
+      <span class="display" style="color: #FBF3E7; font-size: clamp(36px, 4vw, 56px); letter-spacing: 0.01em; line-height: 1;">VIGNESH</span>
+    </div>
+
+    <div class="sec-x hero-over" style="position: absolute; inset: 0; box-sizing: border-box;">
+      <div class="hero-inner" style="position: relative; height: 100%;">
+        <div class="hero-text" style="position: absolute; left: 0; bottom: 56px; display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+          <div class="script rise1" style="font-size: 30px; color: #F0A8A0; line-height: 1;">Performance Marketer</div>
+          <h1 class="display rise2" style="margin: 0; font-size: clamp(38px, 4.6vw, 70px); line-height: 1.0; color: #FBF3E7; text-shadow: 0 8px 30px rgba(0,0,0,0.35);">GROW<br>YOUR<br>BUSINESS<br>ONLINE</h1>
+          <p class="rise3" style="margin: 0; font-size: 16px; line-height: 1.55; color: #F3DED9; max-width: 360px;">Hi! I'm a friendly performance marketer who loves a good headline, a clean report and a campaign that finally clicks. Let's make every rupee of your ad budget work harder.</p>
+          <div class="rise4" style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 14px;">
+            <a class="btn" href="#work" style="display: inline-flex; align-items: center; gap: 10px; background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 17px; padding: 17px 32px; border-radius: 999px;">
+              See my work <span style="font-size: 20px;">&darr;</span>
+            </a>
+            <a class="btn" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #FBF3E7; color: #FBF3E7; font-weight: 700; font-size: 17px; padding: 15px 30px; border-radius: 999px;">
+              Get my resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="sec" style="position: relative; box-sizing: border-box; background: #F6EEE3; overflow: hidden; padding-bottom: 0;">
+    <div class="wrap" style="position: relative; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-end; justify-content: space-between;">
+
+      <span class="display" aria-hidden="true" style="position: absolute; top: -70px; left: -14px; font-size: clamp(110px, 18vw, 250px); line-height: 1; color: rgba(122,20,20,0.07); white-space: nowrap; user-select: none;">ABOUT</span>
+
+      <div style="position: relative; flex: 1 1 380px; max-width: 600px; display: flex; flex-direction: column; gap: 22px; padding-bottom: 72px; z-index: 2;">
+        <div class="script" style="font-size: 32px; line-height: 1; color: #7A1414;">Hey, I'm</div>
+        <h2 class="display" style="margin: 0; font-size: 48px; color: #241512; line-height: 1.02;">VIGNESH</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A2A24;">A performance marketing fresher from Vellore, working out of Chennai. I run live Google Ads campaigns at echoVME Digital and build the AI workflows that make campaign work faster.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A2A24;">I completed my MBA in Digital Marketing Integrated with AI at Digital Scholar, and I learn best by doing: real accounts, real budgets, real search terms.</p>
+        <div style="margin-top: 10px; background: #7A1414; border-radius: 22px; padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 18px 32px rgba(122,20,20,0.22);">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span class="script" style="font-size: 26px; line-height: 1.1; color: #F0C6C1;">What I offer and</span>
+            <h3 class="display" style="margin: 0; font-size: 26px; line-height: 1.1; color: #FBF3E7;">SERVICES I PROVIDE</h3>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <span class="pill" style="background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 999px;">Google Ads</span>
+          <span class="pill" style="background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 999px;">Meta Ads</span>
+          <span class="pill" style="background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 999px;">Website Development</span>
+          <span class="pill" style="background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 999px;">SEO</span>
+          <span class="pill" style="background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 999px;">AI Agentic Workflows</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: relative; flex: 0 0 auto; z-index: 3; align-self: flex-end; margin: 0 auto; display: flex; justify-content: center; align-items: flex-end; min-width: 320px;">
+        <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 320px; height: 440px; margin-left: -160px; border-radius: 160px 160px 0 0; background: #EBD5C6;"></div>
+        <img src="images/ph_about.png" alt="Vignesh K" style="position: relative; display: block; height: 560px; width: auto; max-width: 100%; filter: drop-shadow(0 18px 20px rgba(36,21,18,0.22));">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS TICKER ================= -->
+  <div aria-hidden="true" style="width: 100%; overflow: hidden; background: #1C0D0B; padding: 18px 0;">
+    <div class="marquee" style="align-items: center;"><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">GOOGLE ADS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">META ADS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">SEO</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">WEBSITE DEVELOPMENT</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">AI AGENTIC WORKFLOWS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">N8N AUTOMATION</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">CONTENT &amp; REELS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">GOOGLE ADS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">META ADS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">SEO</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">WEBSITE DEVELOPMENT</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">AI AGENTIC WORKFLOWS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">N8N AUTOMATION</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span><span class="display" style="font-size: 20px; color: #FBF3E7; padding: 0 22px; white-space: nowrap;">CONTENT &amp; REELS</span><span style="color: #F0A8A0; font-size: 20px;">&#10038;</span></div>
+  </div>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="sec" style="box-sizing: border-box; background: #7A1414;">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="script" style="font-size: 34px; line-height: 1.1; color: #F0C6C1;">Where I've worked</div>
+      <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #FBF3E7;">EXPERIENCE</h2>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <div class="rvs" style="display: flex; flex-wrap: wrap; gap: 14px 40px; padding: 30px 0; border-top: 1px solid rgba(251,243,231,0.25);">
+        <div style="flex: 0 0 190px;"><span style="display: inline-block; background: #1C0D0B; color: #FBF3E7; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">Aug 2026 &ndash; Present</span></div>
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px;">
+          <h3 class="display" style="margin: 0; font-size: 26px; line-height: 1.15; color: #FBF3E7;">Google Ads Intern</h3>
+          <span style="font-size: 16px; font-weight: 600; color: #F0A8A0;">echoVME Digital &middot; Chennai</span>
+        </div>
+        <p style="flex: 1.4 1 340px; margin: 0; font-size: 16px; line-height: 1.65; color: #F3DED9;">Managing and optimising live Google Ads campaigns for agency clients: keyword research, ad copy, search-term analysis and performance tracking.</p>
+      </div>
+      <div class="rvs" style="display: flex; flex-wrap: wrap; gap: 14px 40px; padding: 30px 0; border-top: 1px solid rgba(251,243,231,0.25);">
+        <div style="flex: 0 0 190px;"><span style="display: inline-block; background: #1C0D0B; color: #FBF3E7; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">May &ndash; Jun 2026</span></div>
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px;">
+          <h3 class="display" style="margin: 0; font-size: 26px; line-height: 1.15; color: #FBF3E7;">AI Creatives Intern</h3>
+          <span style="font-size: 16px; font-weight: 600; color: #F0A8A0;">echoVME Digital &middot; Chennai</span>
+        </div>
+        <p style="flex: 1.4 1 340px; margin: 0; font-size: 16px; line-height: 1.65; color: #F3DED9;">Produced scripts, AI-generated images and AI-generated videos for marketing content, and built n8n workflow automations that plug AI tools into content production.</p>
+      </div>
+      <div class="rvs" style="display: flex; flex-wrap: wrap; gap: 14px 40px; padding: 30px 0; border-top: 1px solid rgba(251,243,231,0.25); border-bottom: 1px solid rgba(251,243,231,0.25);">
+        <div style="flex: 0 0 190px;"><span style="display: inline-block; background: #1C0D0B; color: #FBF3E7; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">January 2026</span></div>
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px;">
+          <h3 class="display" style="margin: 0; font-size: 26px; line-height: 1.15; color: #FBF3E7;">SEO Executive (Project-Based)</h3>
+          <span style="font-size: 16px; font-weight: 600; color: #F0A8A0;">MVIT, echoVME Digital &amp; Remembher</span>
+        </div>
+        <p style="flex: 1.4 1 340px; margin: 0; font-size: 16px; line-height: 1.65; color: #F3DED9;">On-page SEO improvements, keyword research and content optimisation for institutional and agency websites.</p>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 16px;">
+      <div class="script" style="font-size: 34px; line-height: 1.1; color: #F0C6C1;">Where I've studied</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div class="edu rv" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; background: rgba(251,243,231,0.07); border: 1px solid rgba(251,243,231,0.2); border-radius: 20px; padding: 28px;">
+          <span style="display: inline-block; background: #1C0D0B; color: #FBF3E7; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">Sep 2025 &ndash; Sep 2026</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #FBF3E7;">MBA, Digital Marketing Integrated with AI</h3>
+          <span style="font-size: 16px; font-weight: 600; color: #F0A8A0;">Digital Scholar</span>
+        </div>
+        <div class="edu rv" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; background: rgba(251,243,231,0.07); border: 1px solid rgba(251,243,231,0.2); border-radius: 20px; padding: 28px;">
+          <span style="display: inline-block; background: #1C0D0B; color: #FBF3E7; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 999px; white-space: nowrap;">2019 &ndash; 2023</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #FBF3E7;">B.Sc. (Hons) Agriculture</h3>
+          <span style="font-size: 16px; font-weight: 600; color: #F0A8A0;">SRM Institute of Agricultural Sciences &middot; CGPA 8.5</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= CLIENT WORK ================= -->
+  <section id="work" class="sec" style="box-sizing: border-box; background: #F6EEE3;">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #241512;">CLIENT WORK</h2>
+      <p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: #4A3831; max-width: 640px;">Google Ads campaigns I've worked on as part of my internship at echoVME Digital.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px;">
+      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_kolors.jpg" alt="Kolors Hair &amp; Skin" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Beauty</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Kolors Hair &amp; Skin</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Google Ads campaigns for a hair and skin care brand.</p>
+        </div>
+      </article>
+      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_diadem.jpg" alt="Diadem" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Diadem</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Campaign management and optimisation on Google Ads.</p>
+        </div>
+      </article>
+      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_swarna.jpg" alt="Swarna Bhoomi" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Swarna Bhoomi</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Lead-focused Google Ads campaigns.</p>
+        </div>
+      </article>
+      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_isha.jpg" alt="Isha Uni5, Perungalathur" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Real estate</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Isha Uni5, Perungalathur</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Google Ads for an apartment project in Perungalathur, Chennai.</p>
+        </div>
+      </article>
+      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_llw.jpg" alt="Longer Life Wellness" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Healthcare</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Longer Life Wellness</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Consultation-booking campaigns for a diabetes lifestyle brand in Anna Nagar, Chennai.</p>
+        </div>
+      </article>
+      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_sidharth.jpg" alt="Sidharth Housing" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Search terms</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Sidharth Housing</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Search-term review and negative-keyword clean-up for a Chennai real estate developer.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ---- Content creation: my reels first, then my client's ---- -->
+    <div class="pad-lg" style="margin-top: 24px; background: #2A1210; border-radius: 28px; display: flex; flex-direction: column; gap: 44px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <div class="script" style="font-size: 34px; line-height: 1.1; color: #E7B7B1;">Scripts, edits &amp; reels</div>
+        <h3 class="display" style="margin: 0; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.05; color: #FBF3E7;">CONTENT CREATION</h3>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 26px;">
+        <div style="max-width: 680px; display: flex; flex-direction: column; gap: 14px;">
+          <h4 class="display" style="margin: 0; font-size: 26px; line-height: 1.15; color: #FBF3E7;">My reels</h4>
+          <a class="btn" href="https://www.instagram.com/vigneshnarrates/" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: #F0A8A0; color: #2A1210; font-size: 15px; font-weight: 700; padding: 12px 18px; border-radius: 999px;">@vigneshnarrates <span aria-hidden="true">&nearr;</span></a>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #E8D2CC;">My personal page. I write scripts from real-life experiences, everyday circumstances and brand stories, then tell them on camera in a simple, conversational way that keeps people watching.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px;">
+        <a class="reel rv" href="https://www.instagram.com/vigneshnarrates/reel/DX_-5FXBsvy/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/vn1.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            744K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        <a class="reel rv" href="https://www.instagram.com/vigneshnarrates/reel/DdfteZIhuO9/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/vn2.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            54.8K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        <a class="reel rv" href="https://www.instagram.com/vigneshnarrates/reel/DXZYhhogWl5/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/vn3.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            13K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        <a class="reel rv" href="https://www.instagram.com/vigneshnarrates/reel/DWJgh1PgXkX/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/vn4.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            10K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        </div>
+      </div>
+
+      <div aria-hidden="true" style="height: 1px; background: rgba(251,243,231,0.18);"></div>
+
+      <div style="display: flex; flex-direction: column; gap: 26px;">
+        <div style="max-width: 680px; display: flex; flex-direction: column; gap: 14px;">
+          <h4 class="display" style="margin: 0; font-size: 26px; line-height: 1.15; color: #FBF3E7;">My client's content creation journey</h4>
+          <a class="btn" href="https://www.instagram.com/unga_arun/" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: #F0A8A0; color: #2A1210; font-size: 15px; font-weight: 700; padding: 12px 18px; border-radius: 999px;">@unga_arun <span aria-hidden="true">&nearr;</span></a>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #E8D2CC;">Short-form Instagram reels for my client, an agriculture creator. I write the scripts, edit the videos and pick the best-performing clips to put out.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span style="background: rgba(251,243,231,0.1); color: #FBF3E7; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px;">Script writing</span>
+            <span style="background: rgba(251,243,231,0.1); color: #FBF3E7; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px;">Video editing</span>
+            <span style="background: rgba(251,243,231,0.1); color: #FBF3E7; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px;">Picking the best-performing reels</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px;">
+        <a class="reel rv" href="https://www.instagram.com/unga_arun/reel/Deed-isS3l3/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/reelA1.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            399K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        <a class="reel rv" href="https://www.instagram.com/unga_arun/reel/DepAN5byWk9/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/reelA2.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            191K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        <a class="reel rv" href="https://www.instagram.com/unga_arun/reel/DfrgNJwyAGO/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/reel3.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            122K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        <a class="reel rv" href="https://www.instagram.com/unga_arun/reel/DeWvRBhy6QR/" target="_blank" rel="noopener" aria-label="Watch this reel on Instagram" style="position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 20px; overflow: hidden; background: #3A1512; color: #FBF3E7;">
+          <img class="thumb" src="images/reelA4.jpg" alt="Reel thumbnail" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);"></span>
+          <span style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; gap: 6px; background: rgba(20,8,7,0.78); color: #FFFFFF; font-size: 14px; font-weight: 700; padding: 7px 12px; border-radius: 999px;">
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#FFFFFF"></path></svg>
+            120K views
+          </span>
+          <span class="play" style="position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #FBF3E7; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 12 12"><path d="M3 1l8 5-8 5z" fill="#7A1414"></path></svg>
+          </span>
+          <span style="position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: 13px; font-weight: 600; color: #FFFFFF;">Watch on Instagram &nearr;</span>
+        </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= TOOLS + AUTOMATION ================= -->
+  <section id="tools" class="sec" style="box-sizing: border-box; background: #2A1210;">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="script" style="font-size: 34px; line-height: 1.1; color: #E7B7B1;">What's in my stack</div>
+      <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #FBF3E7;">TOOLS I USE</h2>
+      <p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: #E8D2CC; max-width: 640px;">The platforms I use every day to run campaigns, create content and automate the boring parts.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/logo_claude.png" alt="" style="width: 38px; height: 38px; object-fit: contain; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">Claude</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Analysis, copy and building sites</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/logo_chatgpt.png" alt="" style="width: 38px; height: 38px; object-fit: contain; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">ChatGPT</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Research, scripts and ideas</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/logo3_canva.png" alt="" style="width: 40px; height: 40px; object-fit: contain; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">Canva</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Ad creatives and social designs</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/logo3_flow.png" alt="" style="width: 40px; height: 40px; object-fit: contain; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">Google Flow</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">AI video generation</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/logo_gemini.png" alt="" style="width: 38px; height: 38px; object-fit: contain; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">Google Gemini</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Research and image generation</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A1414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">AI Content Platforms</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Images, video and voice for marketing</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/ic_googleads.svg" alt="" style="width: 34px; height: 34px; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">Google Ads</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Search campaigns and optimisation</span>
+        </div>
+      </div>
+      <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
+        <span class="badge" style="width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="images/logo_meta.png" alt="" style="width: 38px; height: 38px; object-fit: contain; display: block;"></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="display" style="font-size: 18px; line-height: 1.2; color: #FBF3E7;">Meta Ads</span>
+          <span style="font-size: 14px; line-height: 1.4; color: #E8D2CC;">Ads Manager and Business Suite</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="script" style="font-size: 34px; line-height: 1.1; color: #E7B7B1;">Things I've built</div>
+      <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #FBF3E7;">AUTOMATION PROJECTS</h2>
+    </div>
+    </div>
+
+    <div class="pad-md rv" style="display: flex; flex-direction: column; gap: 40px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 28px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-start;">
+        <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F0A8A0;">Project 01 &middot; n8n</span>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span style="width: 52px; height: 52px; flex: 0 0 52px; border-radius: 14px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><img src="images/ic_n8n.svg" alt="" style="width: 32px; height: 32px; display: block;"></span>
+            <h3 class="display" style="margin: 0; font-size: 28px; line-height: 1.1; color: #FBF3E7;">Tweet automation with n8n</h3>
+          </div>
+        </div>
+        <p style="flex: 1.6 1 380px; margin: 0; font-size: 16px; line-height: 1.65; color: #E8D2CC;">A Twitter/X agent I built in n8n. Twice a day it drafts a tweet with an AI model, sends it to me on Telegram for approval, publishes the approved tweet to X and logs it in Google Sheets. No manual posting, and nothing goes out without a human check.</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: center; justify-content: center;">
+        <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 20px 6px;">
+          <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 124px; text-align: center;">
+            <span class="node" style="width: 72px; height: 72px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7A1414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+            <span style="font-size: 15px; font-weight: 700; color: #FBF3E7;">Schedule</span>
+            <span style="font-size: 13px; line-height: 1.35; color: #E8D2CC;">Morning and evening</span>
+          </div>
+          <span class="flowline" aria-hidden="true" style="flex: 1 1 24px; min-width: 24px; max-width: 80px; margin-top: 35px;"></span>
+          <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 124px; text-align: center;">
+            <span class="node" style="width: 72px; height: 72px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7A1414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"></path></svg></span>
+            <span style="font-size: 15px; font-weight: 700; color: #FBF3E7;">AI writes it</span>
+            <span style="font-size: 13px; line-height: 1.35; color: #E8D2CC;">Tweet drafted by an AI model</span>
+          </div>
+          <span class="flowline" aria-hidden="true" style="flex: 1 1 24px; min-width: 24px; max-width: 80px; margin-top: 35px;"></span>
+          <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 124px; text-align: center;">
+            <span class="node" style="width: 72px; height: 72px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><img src="images/ic_telegram.svg" alt="" style="width: 36px; height: 36px; display: block;"></span>
+            <span style="font-size: 15px; font-weight: 700; color: #FBF3E7;">Telegram check</span>
+            <span style="font-size: 13px; line-height: 1.35; color: #E8D2CC;">I approve or reject</span>
+          </div>
+          <span class="flowline" aria-hidden="true" style="flex: 1 1 24px; min-width: 24px; max-width: 80px; margin-top: 35px;"></span>
+          <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 124px; text-align: center;">
+            <span class="node" style="width: 72px; height: 72px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><img src="images/ic_x.svg" alt="" style="width: 36px; height: 36px; display: block;"></span>
+            <span style="font-size: 15px; font-weight: 700; color: #FBF3E7;">Post to X</span>
+            <span style="font-size: 13px; line-height: 1.35; color: #E8D2CC;">Publishes the tweet</span>
+          </div>
+          <span class="flowline" aria-hidden="true" style="flex: 1 1 24px; min-width: 24px; max-width: 80px; margin-top: 35px;"></span>
+          <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 124px; text-align: center;">
+            <span class="node" style="width: 72px; height: 72px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><img src="images/ic_googlesheets.svg" alt="" style="width: 36px; height: 36px; display: block;"></span>
+            <span style="font-size: 15px; font-weight: 700; color: #FBF3E7;">Google Sheets</span>
+            <span style="font-size: 13px; line-height: 1.35; color: #E8D2CC;">Every post is logged</span>
+          </div>
+        </div>
+
+        <figure style="flex: 0 1 820px; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <img class="shot" src="images/workflow_crop.png" alt="Screenshot of the n8n workflow: schedule, AI generation, Telegram approval, post to X, save to Google Sheets" style="display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(251,243,231,0.2);">
+          <figcaption style="font-size: 14px; color: #E8D2CC; text-align: center;">The live workflow in my n8n workspace.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= RESUME + CONTACT ================= -->
+  <section id="contact" class="sec" style="position: relative; box-sizing: border-box; background: #7A1414; overflow: hidden;">
+    <span class="display" aria-hidden="true" style="position: absolute; top: 10px; right: 20px; font-size: clamp(110px, 16vw, 220px); line-height: 1; color: rgba(251,243,231,0.06); white-space: nowrap; user-select: none;">HIRE</span>
+
+    <div class="wrap" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;">
+      <div class="script" style="font-size: 34px; line-height: 1.1; color: #F0C6C1;">Let's connect</div>
+      <h2 class="display" style="margin: 0; font-size: clamp(38px, 5.4vw, 60px); color: #FBF3E7; line-height: 1.02;">LET'S WORK<br>TOGETHER</h2>
+      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #F3DED9; max-width: 520px;">Open to performance marketing roles in Chennai, Bengaluru or remote. Grab my resume, or drop me a line.</p>
+
+      <div style="position: relative; width: 660px; max-width: 100%; display: flex; align-items: flex-end; justify-content: center; margin-top: 44px;">
+        <span aria-hidden="true" style="position: absolute; left: -4%; right: -4%; bottom: -24px; height: 48px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(20,6,5,0.55) 0%, rgba(20,6,5,0.25) 45%, rgba(20,6,5,0) 72%);"></span>
+        <img src="images/formal_cut3.png" alt="Vignesh K leaning against his resume" style="position: relative; z-index: 2; display: block; flex: 0 0 32.6%; width: 32.6%; min-width: 0; height: auto; margin-right: -0.4%; pointer-events: none; filter: drop-shadow(0 0 10px rgba(20,6,5,0.55)) drop-shadow(-6px 10px 14px rgba(20,6,5,0.4));">
+        <a class="resume" href="images/Vignesh_K_Resume.pdf" download="Vignesh_K_Resume.pdf" id="dl" aria-label="Download my resume as a PDF" style="position: relative; display: block; flex: 0 0 67%; width: 67%; aspect-ratio: 210 / 297; border-radius: 18px; overflow: hidden; background: #FFFFFF; box-shadow: 0 24px 50px rgba(0,0,0,0.4);">
+          <img class="page" src="images/resume-1.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;">
+          <span class="glow" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,18,16,0.05) 0%, rgba(42,18,16,0.55) 100%);"></span>
+          <span style="position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); display: flex; justify-content: center;">
+            <span class="dl" style="display: inline-flex; align-items: center; gap: 0.6em; background: #7A1414; color: #FBF3E7; font-weight: 700; font-size: clamp(12px, 3.3vw, 18px); padding: 0.95em 1.5em; border-radius: 999px; white-space: nowrap;">
+              <span id="dli" class="dlicon" style="font-size: 1.4em; line-height: 1;">📄</span>
+              <span id="dll">Download resume</span>
+            </span>
+          </span>
+          <span style="position: absolute; left: 0; right: 0; bottom: 16px; font-size: clamp(10px, 2.6vw, 13px); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF;">Tap anywhere &middot; PDF</span>
+        </a>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 36px; margin-top: 40px;">
+        <a class="navlink" href="mailto:vigneshdigitalmarketer13@gmail.com" style="color: #FBF3E7; font-size: clamp(15px, 4.2vw, 18px); font-weight: 600; display: inline-flex; align-items: center; gap: 10px; padding: 10px 0;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F0C6C1; display: inline-block;"></span>
+          vigneshdigitalmarketer13@gmail.com
+        </a>
+        <a class="navlink" href="https://linkedin.com/in/vigneshviky13" target="_blank" rel="noopener" style="color: #FBF3E7; font-size: clamp(15px, 4.2vw, 18px); font-weight: 600; display: inline-flex; align-items: center; gap: 10px; padding: 10px 0;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F0C6C1; display: inline-block;"></span>
+          linkedin.com/in/vigneshviky13
+        </a>
+        <a class="navlink" href="tel:+919655502169" style="color: #FBF3E7; font-size: clamp(15px, 4.2vw, 18px); font-weight: 600; display: inline-flex; align-items: center; gap: 10px; padding: 10px 0;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F0C6C1; display: inline-block;"></span>
+          +91 96555 02169
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-x" style="box-sizing: border-box; background: #1C0D0B; padding-top: 22px; padding-bottom: 22px; text-align: center;">
+    <span style="font-size: 13px; color: #C9AEA8;">&copy; Vignesh K &mdash; Performance Marketer, Chennai &amp; Vellore</span>
+  </div>
+
+  <!-- flying cursor: plane + trail, moved by the script below -->
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
+  <img class="fly-plane" src="images/plane96.png" alt="" aria-hidden="true" style="width: 38px; height: 38px; z-index: 9999; transform-origin: 2.4px 2.4px;">
+
+</div>
+
+<script>
+class DCLogic{constructor(){this.state={}} setState(p){Object.assign(this.state,p);const v=this.renderVals();document.getElementById('dli').textContent=v.dlIcon;document.getElementById('dll').textContent=v.dlLabel}}
+
+class Component extends DCLogic {
+  componentDidMount() {
+    this._tries = 0;
+    this._startFly();
+  }
+
+  componentWillUnmount() {
+    if (this._stopFly) this._stopFly();
+    if (this._retry) clearTimeout(this._retry);
+  }
+
+  /* Paper-plane cursor: the plane's nose sits exactly on the pointer, turns toward
+     the direction of travel, and leaves a short fading trail behind it. */
+  _startFly() {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const plane = document.querySelector('.fly-plane');
+    const dots = Array.prototype.slice.call(document.querySelectorAll('.fly-dot'));
+    if (!plane || !dots.length) {
+      if (this._tries++ < 40) this._retry = setTimeout(() => this._startFly(), 250);
+      return;
+    }
+    const TIP = 2.4, REST = 0, TAIL = 26;
+    const s = { x: -100, y: -100, px: -100, py: -100, ang: REST, target: REST, seen: false, last: 0, energy: 0 };
+    const pts = dots.map(() => ({ x: -100, y: -100 }));
+    let raf = 0, alive = true;
+
+    const onMove = (e) => {
+      const dx = e.clientX - s.px, dy = e.clientY - s.py;
+      if (!s.seen) { pts.forEach((p) => { p.x = e.clientX; p.y = e.clientY; }); }
+      s.x = e.clientX; s.y = e.clientY;
+      if (s.seen && dx * dx + dy * dy > 9) {
+        s.target = Math.atan2(dy, dx) * 180 / Math.PI + 135;
+        s.px = e.clientX; s.py = e.clientY;
+        s.last = Date.now();
+      } else if (!s.seen) {
+        s.px = e.clientX; s.py = e.clientY;
+      }
+      s.seen = true;
+    };
+    const onLeave = (e) => { if (!e.relatedTarget) s.seen = false; };
+
+    const frame = () => {
+      if (!alive) return;
+      const moving = Date.now() - s.last < 140;
+      if (!moving && Date.now() - s.last > 500) s.target = REST;
+      let diff = ((s.target - s.ang + 540) % 360) - 180;
+      s.ang += diff * 0.2;
+      s.energy += ((moving ? 1 : 0) - s.energy) * 0.12;
+      plane.style.opacity = s.seen ? '1' : '0';
+      plane.style.transform = 'translate3d(' + (s.x - TIP) + 'px,' + (s.y - TIP) + 'px,0) rotate(' + s.ang.toFixed(1) + 'deg)';
+      const heading = (s.ang - 135) * Math.PI / 180;
+      let tx = s.x - Math.cos(heading) * TAIL, ty = s.y - Math.sin(heading) * TAIL;
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        p.x += (tx - p.x) * 0.34; p.y += (ty - p.y) * 0.34;
+        const k = 1 - i / pts.length;
+        dots[i].style.opacity = s.seen ? (s.energy * k * 0.9).toFixed(2) : '0';
+        dots[i].style.transform = 'translate3d(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px,0) scale(' + (0.35 + 0.65 * k).toFixed(2) + ')';
+        tx = p.x; ty = p.y;
+      }
+      raf = requestAnimationFrame(frame);
+    };
+
+    document.documentElement.classList.add('fly-on');
+    window.addEventListener('mousemove', onMove, { passive: true });
+    document.addEventListener('mouseout', onLeave);
+    raf = requestAnimationFrame(frame);
+    this._stopFly = () => {
+      alive = false;
+      cancelAnimationFrame(raf);
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseout', onLeave);
+      document.documentElement.classList.remove('fly-on');
+    };
+  }
+
+  renderVals() {
+    const done = !!(this.state && this.state.done);
+    return {
+      dlIcon: done ? '\u2705' : '\uD83D\uDCC4',
+      dlLabel: done ? 'Downloading!' : 'Download resume',
+      onDownload: () => {
+        try { if (navigator.vibrate) navigator.vibrate([18, 40, 18]); } catch (e) {}
+        this.setState({ done: true });
+        setTimeout(() => this.setState({ done: false }), 3000);
+      }
+    };
+  }
+}
+
+const __c=new Component();__c.componentDidMount();
+document.getElementById('dl').addEventListener('click',__c.renderVals().onDownload);
+</script>
+</body>
+</html>
