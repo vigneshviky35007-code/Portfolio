@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <title>Vignesh K — Performance Marketer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Vignesh K — Performance Marketer. Google Ads, SEO and AI agentic workflows. Chennai, India.">
+  <meta name="description" content="Vignesh K — Performance Marketer. Google Ads, Meta Ads, SEO and AI agentic workflows. Chennai, India.">
   <meta property="og:title" content="Vignesh K — Performance Marketer"><meta property="og:image" content="images/ph_hero.jpg">
-  <link rel="icon" href="images/logo_claude.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
 
@@ -37,6 +39,11 @@
       .navlinks { gap: 0 16px !important; }
       .navlinks a { font-size: 14px !important; }
       .flowline { display: none; }
+      section[id] { scroll-margin-top: 100px; }
+      .feat .num { font-size: 34px !important; }
+      .feat figure { padding: 0 20px 26px !important; }
+      .about-photo { height: 560px !important; }
+      .mshot { width: 760px !important; max-width: none; }
     }
     @media (max-width: 900px) {
       /* phones and small tablets: photo on top with the face clear, text below it */
@@ -112,6 +119,90 @@
     .fly-plane, .fly-dot { position: fixed; left: 0; top: 0; pointer-events: none; opacity: 0; will-change: transform, opacity; }
     html.fly-on, html.fly-on * { cursor: none !important; }
 
+    /* ---------- motion pass 2 ---------- */
+    section[id] { scroll-margin-top: 64px; }
+    .topnav { position: sticky; top: 0; transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease; }
+    .topnav.scrolled { background: rgba(26,13,12,0.86) !important; -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); box-shadow: 0 10px 30px rgba(0,0,0,0.28); padding-top: 9px !important; padding-bottom: 9px !important; }
+    .navlink { position: relative; }
+    .navlinks .navlink::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; border-radius: 2px; background: #F0A8A0; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(.2,.8,.2,1); }
+    .navlinks .navlink:hover::after, .navlinks .navlink.active::after { transform: scaleX(1); }
+    .navlinks .navlink.active { color: #F0A8A0 !important; }
+    .progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; z-index: 9990; background: linear-gradient(90deg, #F0A8A0, #FBF3E7); transform-origin: left; transform: scaleX(0); pointer-events: none; }
+
+    @keyframes lineUp { from { transform: translateY(105%); } to { transform: translateY(0); } }
+    .ln { display: block; overflow: hidden; padding-bottom: 0.04em; }
+    .ln > span { display: block; animation: lineUp 0.9s cubic-bezier(.2,.8,.2,1) both; }
+    .ln:nth-child(1) > span { animation-delay: 0.15s; }
+    .ln:nth-child(2) > span { animation-delay: 0.27s; }
+    .ln:nth-child(3) > span { animation-delay: 0.39s; }
+    .ln:nth-child(4) > span { animation-delay: 0.51s; }
+
+    /* tilt + light sheen on cards (mouse devices; driven by the script) */
+    .tilt { position: relative; transform-style: preserve-3d; will-change: transform; }
+    .tilt::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.35s ease; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.16), rgba(255,255,255,0) 60%); }
+    .tilt:hover::after { opacity: 1; }
+    .btn { will-change: transform; }
+
+    /* stats */
+    .stat { display: flex; flex-direction: column; gap: 6px; }
+    .stat .num { font-family: 'Archivo Black', sans-serif; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .stat .lbl { font-size: 14px; line-height: 1.4; }
+    .num.done { animation: popIn 0.45s ease; }
+    .swipe { display: none; }
+    @media (max-width: 760px) { .swipe { display: inline; } }
+
+    /* feature cards */
+    .feat { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .feat:hover { box-shadow: 0 28px 56px rgba(42,18,16,0.28); }
+    .chip { display: inline-block; font-size: 14px; font-weight: 600; padding: 9px 16px; border-radius: 999px; transition: transform 0.25s ease, background 0.25s ease; }
+    .chip:hover { transform: translateY(-2px); }
+    .jcard { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .jcard:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(122,20,20,0.14); }
+    .jcard li { position: relative; padding-left: 20px; }
+    .jcard li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 50%; background: #7A1414; }
+
+    /* case-study popup */
+    .modal { position: fixed; inset: 0; z-index: 9900; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; visibility: hidden; opacity: 0; transition: opacity 0.35s ease, visibility 0s linear 0.35s; }
+    .modal.open { visibility: visible; opacity: 1; transition: opacity 0.35s ease; }
+    .modal .scrim { position: absolute; inset: 0; background: rgba(18,7,6,0.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+    .modal .sheet { position: relative; width: 100%; max-width: 980px; max-height: calc(100vh - 48px); overflow: auto; overscroll-behavior: contain; background: #F6EEE3; border-radius: 26px; box-shadow: 0 40px 90px rgba(0,0,0,0.5); transform: translateY(28px) scale(0.97); transition: transform 0.45s cubic-bezier(.2,.8,.2,1); }
+    .modal.open .sheet { transform: translateY(0) scale(1); }
+    .modal.inline { position: absolute; inset: auto 0 auto 0; align-items: flex-start; }
+    .modal.inline .scrim { position: fixed; }
+    .modal.inline .sheet { max-height: none; }
+    .tabbar { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tab { font: inherit; font-size: 15px; font-weight: 700; padding: 11px 18px; border-radius: 999px; border: 1.5px solid rgba(122,20,20,0.25); background: transparent; color: #7A1414; transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+    .tab:hover { transform: translateY(-2px); }
+    .tab[aria-selected="true"] { background: #7A1414; color: #FBF3E7; border-color: #7A1414; }
+    .panel[hidden] { display: none !important; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .panel { animation: panelIn 0.45s cubic-bezier(.2,.8,.2,1) both; }
+    .xbtn { font: inherit; width: 46px; height: 46px; flex: 0 0 46px; border-radius: 50%; border: 0; background: #7A1414; color: #FBF3E7; font-size: 22px; line-height: 1; transition: transform 0.25s ease; }
+    .xbtn:hover { transform: rotate(90deg); }
+    .mine { transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
+    .mine:hover { transform: translateX(4px); background: #FFFFFF !important; box-shadow: 0 10px 22px rgba(122,20,20,0.12); }
+    .proof { transition: transform 0.4s cubic-bezier(.2,.8,.2,1); }
+    .proof:hover { transform: scale(1.02); }
+    .ring { position: relative; width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: conic-gradient(#7A1414 calc(var(--p) * 1%), rgba(122,20,20,0.14) 0); }
+    .ring::before { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: #FBF3E7; }
+    .ring span { position: relative; font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #7A1414; }
+    html.lock { overflow: hidden; }
+    @media (max-width: 760px) {
+      .modal { padding: 10px; }
+      .modal .sheet { max-height: calc(100vh - 20px); border-radius: 22px; }
+      .mhead { padding: 18px 18px 14px !important; gap: 14px !important; }
+      .mbody { padding: 20px 18px 28px !important; }
+      .msub { display: none; }
+      .tabbar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -18px; padding: 0 18px 2px; }
+      .tabbar::-webkit-scrollbar { display: none; }
+      .tab { flex: 0 0 auto; white-space: nowrap; padding: 10px 16px; font-size: 14px; }
+    }
+
+    /* reveal fallback for browsers without scroll-driven animations (switched on by the script) */
+    html.io .rv { opacity: 0; translate: 0 44px; transition: opacity 0.8s ease, translate 0.8s cubic-bezier(.2,.8,.2,1); }
+    html.io .rvs { opacity: 0; translate: -54px 0; transition: opacity 0.8s ease, translate 0.8s cubic-bezier(.2,.8,.2,1); }
+    html.io .rv.in, html.io .rvs.in { opacity: 1; translate: 0 0; }
+
     @supports (animation-timeline: view()) {
       .rv { animation: revealUp linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
       .rvs { animation: revealSide linear both; animation-timeline: view(); animation-range: entry 0% entry 50%; }
@@ -123,10 +214,11 @@
   </style>
 
 
-<div style="width: 100%; box-sizing: border-box; background: #F6EEE3; color: #241512; overflow: hidden;">
+<div style="width: 100%; box-sizing: border-box; background: #F6EEE3; color: #241512; overflow: hidden; overflow: clip;">
+  <div class="progress" aria-hidden="true"></div>
 
   <!-- ================= NAV ================= -->
-  <nav class="sec-x" style="position: relative; z-index: 10; box-sizing: border-box; background: #1a0d0c; padding-top: 14px; padding-bottom: 14px;">
+  <nav class="sec-x topnav" style="z-index: 50; box-sizing: border-box; background: #1a0d0c; padding-top: 14px; padding-bottom: 14px;">
     <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between;">
       <span class="display" style="color: #FBF3E7; font-size: 20px; letter-spacing: 0.02em;">VIGNESH K</span>
       <div class="navlinks" style="display: flex; flex-wrap: wrap; gap: 0 26px;">
@@ -155,7 +247,7 @@
       <div class="hero-inner" style="position: relative; height: 100%;">
         <div class="hero-text" style="position: absolute; left: 0; bottom: 56px; display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
           <div class="script rise1" style="font-size: 30px; color: #F0A8A0; line-height: 1;">Performance Marketer</div>
-          <h1 class="display rise2" style="margin: 0; font-size: clamp(38px, 4.6vw, 70px); line-height: 1.0; color: #FBF3E7; text-shadow: 0 8px 30px rgba(0,0,0,0.35);">GROW<br>YOUR<br>BUSINESS<br>ONLINE</h1>
+          <h1 class="display" style="margin: 0; font-size: clamp(38px, 4.6vw, 70px); line-height: 1.0; color: #FBF3E7; text-shadow: 0 8px 30px rgba(0,0,0,0.35);"><span class="ln"><span>GROW</span></span><span class="ln"><span>YOUR</span></span><span class="ln"><span>BUSINESS</span></span><span class="ln"><span>ONLINE</span></span></h1>
           <p class="rise3" style="margin: 0; font-size: 16px; line-height: 1.55; color: #F3DED9; max-width: 360px;">Hi! I'm a friendly performance marketer who loves a good headline, a clean report and a campaign that finally clicks. Let's make every rupee of your ad budget work harder.</p>
           <div class="rise4" style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 14px;">
             <a class="btn" href="#work" style="display: inline-flex; align-items: center; gap: 10px; background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 17px; padding: 17px 32px; border-radius: 999px;">
@@ -179,8 +271,45 @@
       <div style="position: relative; flex: 1 1 380px; max-width: 600px; display: flex; flex-direction: column; gap: 22px; padding-bottom: 72px; z-index: 2;">
         <div class="script" style="font-size: 32px; line-height: 1; color: #7A1414;">Hey, I'm</div>
         <h2 class="display" style="margin: 0; font-size: 48px; color: #241512; line-height: 1.02;">VIGNESH</h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A2A24;">A performance marketing fresher from Vellore, working out of Chennai. I run live Google Ads campaigns at echoVME Digital and build the AI workflows that make campaign work faster.</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A2A24;">A performance marketing fresher from Vellore, working out of Chennai. I recently finished a two-month Google Ads internship at echoVME Digital, and I build AI workflows that make campaign work faster.</p>
         <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A2A24;">I completed my MBA in Digital Marketing Integrated with AI at Digital Scholar, and I learn best by doing: real accounts, real budgets, real search terms.</p>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7A1414;">What I learnt in my MBA</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">SEO</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Website &amp; landing page development</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Google Ads</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Meta Ads</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Branding &amp; marketing</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Finance &amp; marketing</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Leadership skills</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">LinkedIn profile optimisation</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Content &amp; social media</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">AI tools for marketing</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 6px;">
+          <div class="jcard rv" style="display: flex; flex-direction: column; gap: 12px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 20px; padding: 22px 22px 24px;">
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span class="script" style="font-size: 24px; line-height: 1.05; color: #7A1414;">During my course</span>
+              <h3 class="display" style="margin: 0; font-size: 21px; line-height: 1.15; color: #241512;">MBA &middot; Digital Scholar</h3>
+            </div>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.55; color: #3A2A24;">
+            <li>Planned and launched a Meta Ads campaign for Rishi Jain's AI course, <em>Claude Is My Cofounder</em>, with a teammate: creatives, budget, setup and go-live.</li>
+            <li>SEO group project for three brands: keyword research, content on Medium, Quora, Reddit and LinkedIn, and website audits.</li>
+            </ul>
+          </div>
+          <div class="jcard rv" style="display: flex; flex-direction: column; gap: 12px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 20px; padding: 22px 22px 24px;">
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span class="script" style="font-size: 24px; line-height: 1.05; color: #7A1414;">During my internships</span>
+              <h3 class="display" style="margin: 0; font-size: 21px; line-height: 1.15; color: #241512;">echoVME Digital</h3>
+            </div>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.55; color: #3A2A24;">
+            <li>Google Ads Intern (two months): campaigns for six brands across beauty, real estate and healthcare.</li>
+            <li>AI Creatives Intern: scripts, AI images and videos, and n8n automations for content production.</li>
+            </ul>
+          </div>
+        </div>
         <div style="margin-top: 10px; background: #7A1414; border-radius: 22px; padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 18px 32px rgba(122,20,20,0.22);">
           <div style="display: flex; flex-direction: column; gap: 2px;">
             <span class="script" style="font-size: 26px; line-height: 1.1; color: #F0C6C1;">What I offer and</span>
@@ -196,9 +325,30 @@
         </div>
       </div>
 
-      <div style="position: relative; flex: 0 0 auto; z-index: 3; align-self: flex-end; margin: 0 auto; display: flex; justify-content: center; align-items: flex-end; min-width: 320px;">
-        <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 320px; height: 440px; margin-left: -160px; border-radius: 160px 160px 0 0; background: #EBD5C6;"></div>
-        <img src="images/ph_about.png" alt="Vignesh K" style="position: relative; display: block; height: 560px; width: auto; max-width: 100%; filter: drop-shadow(0 18px 20px rgba(36,21,18,0.22));">
+      <div class="about-side" style="position: relative; flex: 0 1 420px; z-index: 3; align-self: stretch; margin: 0 auto; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 28px; min-width: 300px;">
+        <div class="rv" style="width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; background: #2A1210; border-radius: 24px; padding: 28px 26px; box-shadow: 0 18px 34px rgba(42,18,16,0.2); box-sizing: border-box;">
+          <span class="script" style="grid-column: 1 / -1; font-size: 26px; line-height: 1; color: #F0C6C1;">My work in numbers</span>
+          <div class="stat" style="">
+            <span class="num" data-count="6" data-dec="0" data-prefix="" data-suffix="" style="font-size: 38px; color: #FBF3E7;">6</span>
+            <span class="lbl" style="color: #E8D2CC;">Brands on Google Ads</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="84" data-dec="0" data-prefix="" data-suffix="" style="font-size: 38px; color: #FBF3E7;">84</span>
+            <span class="lbl" style="color: #E8D2CC;">Purchases from the Meta campaign</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="13" data-dec="0" data-prefix="" data-suffix="" style="font-size: 38px; color: #FBF3E7;">13</span>
+            <span class="lbl" style="color: #E8D2CC;">SEO content pieces by our team</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="16" data-dec="0" data-prefix="" data-suffix="L+" style="font-size: 38px; color: #FBF3E7;">16L+</span>
+            <span class="lbl" style="color: #E8D2CC;">Views on the reels featured here</span>
+          </div>
+        </div>
+        <div style="position: relative; display: flex; justify-content: center; align-items: flex-end;">
+          <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 360px; height: 500px; margin-left: -180px; border-radius: 180px 180px 0 0; background: #EBD5C6;"></div>
+          <img class="about-photo" src="images/ph_about.png" alt="Vignesh K" style="position: relative; display: block; height: 640px; width: auto; max-width: 100%; filter: drop-shadow(0 18px 20px rgba(36,21,18,0.22));">
+        </div>
       </div>
     </div>
   </section>
@@ -211,10 +361,10 @@
   <!-- ================= EXPERIENCE ================= -->
   <section id="experience" class="sec" style="box-sizing: border-box; background: #7A1414;">
     <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div class="rv"><div style="display: flex; flex-direction: column; gap: 6px;">
       <div class="script" style="font-size: 34px; line-height: 1.1; color: #F0C6C1;">Where I've worked</div>
       <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #FBF3E7;">EXPERIENCE</h2>
-    </div>
+    </div></div>
 
     <div style="display: flex; flex-direction: column;">
       <div class="rvs" style="display: flex; flex-wrap: wrap; gap: 14px 40px; padding: 30px 0; border-top: 1px solid rgba(251,243,231,0.25);">
@@ -261,16 +411,119 @@
     </div>
   </section>
 
-  <!-- ================= CLIENT WORK ================= -->
+  <!-- ================= WORK ================= -->
   <section id="work" class="sec" style="box-sizing: border-box; background: #F6EEE3;">
     <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; flex-direction: column; gap: 6px;">
-      <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #241512;">CLIENT WORK</h2>
-      <p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: #4A3831; max-width: 640px;">Google Ads campaigns I've worked on as part of my internship at echoVME Digital.</p>
+    <div class="rv"><div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="script" style="font-size: 34px; line-height: 1.1; color: #7A1414;">My work</div>
+      <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #241512;">THINGS I'VE WORKED ON</h2>
+    </div></div>
+
+    <!-- ---- During my course ---- -->
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 4px;">
+        <span class="script" style="font-size: 30px; line-height: 1.05; color: #7A1414;">During my course</span>
+        <h3 class="display" style="margin: 0; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; color: #241512;">COURSE PROJECTS</h3>
+        <p style="margin: 8px 0 0; font-size: 17px; line-height: 1.6; color: #4A3831; max-width: 640px;">Live projects from my MBA in Digital Marketing Integrated with AI at Digital Scholar.</p>
+      </div>
+    
+      <article class="feat tilt rv" style="background: #7A1414; border-radius: 28px; overflow: hidden; color: #FBF3E7;">
+        <div class="pad-md" style="display: flex; flex-wrap: wrap; gap: 36px 56px; align-items: stretch;">
+          <div style="flex: 1.25 1 360px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="width: 54px; height: 54px; flex: 0 0 54px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><img src="images/logo_meta.png" alt="" style="width: 34px; height: 34px; object-fit: contain; display: block;"></span>
+              <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F0C6C1;">Meta Ads &middot; Course project</span>
+            </div>
+            <h4 class="display" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px); line-height: 1.08; color: #FBF3E7;">Claude Is My Cofounder</h4>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #F3DED9;">A live Meta Ads campaign for Rishi Jain's AI course, <em>Claude Is My Cofounder</em>. Working with a teammate, I created the ad creatives, planned the budget across the ad sets, set up the campaign and took it live.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">AI ad creatives</span>
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Budget planning</span>
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Campaign setup</span>
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Going live</span>
+            </div>
+          </div>
+          <div style="flex: 1 1 300px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; align-content: center; background: rgba(0,0,0,0.18); border: 1px solid rgba(251,243,231,0.14); border-radius: 22px; padding: 28px 26px;">
+          <div class="stat" style="">
+            <span class="num" data-count="84" data-dec="0" data-prefix="" data-suffix="" style="font-size: 44px; color: #FBF3E7;">84</span>
+            <span class="lbl" style="color: #E8D2CC;">Website purchases</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="10.5" data-dec="1" data-prefix="" data-suffix="L+" style="font-size: 44px; color: #FBF3E7;">10.5L+</span>
+            <span class="lbl" style="color: #E8D2CC;">Impressions (10,51,260)</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="5" data-dec="0" data-prefix="" data-suffix="" style="font-size: 44px; color: #FBF3E7;">5</span>
+            <span class="lbl" style="color: #E8D2CC;">Ad sets planned and launched</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="1580" data-dec="0" data-prefix="&#8377;" data-suffix="" style="font-size: 44px; color: #FBF3E7;">&#8377;1,580</span>
+            <span class="lbl" style="color: #E8D2CC;">Best cost per purchase</span>
+          </div>
+          </div>
+        </div>
+        <figure class="rv" style="margin: 0; padding: 0 44px 36px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px;">
+            <span class="display" style="font-size: 20px; color: #FBF3E7;">Results in Ads Manager</span>
+            <span class="swipe" style="font-size: 13px; font-weight: 600; color: #F0C6C1;">Swipe to see every column &rarr;</span>
+          </div>
+          <div class="shotwrap" style="overflow-x: auto; border-radius: 16px; background: #FFFFFF; box-shadow: 0 16px 34px rgba(0,0,0,0.3);">
+            <img class="mshot" src="images/meta_results.jpg" alt="Meta Ads Manager table of five ad sets; my two ad sets, new_creatives_students and Freelancers/Business owners (MBA), are outlined" loading="lazy" style="display: block; width: 100%; height: auto;">
+          </div>
+          <figcaption style="font-size: 14px; line-height: 1.55; color: #F3DED9;"><strong style="color: #FBF3E7;">Outlined: the two ad sets I built</strong>, new_creatives_students (5 purchases) and Freelancers / Business owners (MBA) (24 purchases at &#8377;1,579.88 each).</figcaption>
+        </figure>
+        <div class="sec-x" style="padding-top: 14px; padding-bottom: 16px; background: rgba(0,0,0,0.2); font-size: 13px; line-height: 1.5; color: #E8D2CC;">Campaign results from Meta Ads Manager, 18 Aug &ndash; 16 Sep 2026. Account details cropped out.</div>
+      </article>
+    
+      <article class="feat tilt rv" style="background: #2A1210; border-radius: 28px; overflow: hidden; color: #FBF3E7;">
+        <div class="pad-md" style="display: flex; flex-wrap: wrap; gap: 36px 56px; align-items: stretch;">
+          <div style="flex: 1.25 1 360px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="width: 54px; height: 54px; flex: 0 0 54px; border-radius: 16px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A1414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M20 20l-4.8-4.8"></path><path d="M7.5 12l2-2.2 1.8 1.6 2.4-3"></path></svg></span>
+              <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F0C6C1;">SEO &middot; Group project &middot; January 2026</span>
+            </div>
+            <h4 class="display" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px); line-height: 1.08; color: #FBF3E7;">Ranking three brands on Google</h4>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #F3DED9;">A team project from my course. For Remembher, MVIT and echoVME Digital we chose target keywords, published content across Medium, Quora, Reddit and LinkedIn, audited each website and tracked where the brands showed up on Google.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Keyword research</span>
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Content publishing</span>
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Site audits</span>
+            <span class="chip" style="background: rgba(251,243,231,0.12); color: #FBF3E7;">Rank tracking</span>
+            </div>
+            <button type="button" class="btn" data-open="seo-modal" style="align-self: flex-start; margin-top: 10px; font: inherit; border: 0; display: inline-flex; align-items: center; gap: 10px; background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 16px; padding: 15px 26px; border-radius: 999px;">Open the case study <span aria-hidden="true" style="font-size: 18px;">&rarr;</span></button>
+          </div>
+          <div style="flex: 1 1 300px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; align-content: center; background: rgba(0,0,0,0.18); border: 1px solid rgba(251,243,231,0.14); border-radius: 22px; padding: 28px 26px;">
+          <div class="stat" style="">
+            <span class="num" data-count="3" data-dec="0" data-prefix="" data-suffix="" style="font-size: 44px; color: #FBF3E7;">3</span>
+            <span class="lbl" style="color: #E8D2CC;">Brands</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="13" data-dec="0" data-prefix="" data-suffix="" style="font-size: 44px; color: #FBF3E7;">13</span>
+            <span class="lbl" style="color: #E8D2CC;">Content pieces by the team</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="7" data-dec="0" data-prefix="" data-suffix="" style="font-size: 44px; color: #FBF3E7;">7</span>
+            <span class="lbl" style="color: #E8D2CC;">Pieces written by me</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="1" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 44px; color: #FBF3E7;">#1</span>
+            <span class="lbl" style="color: #E8D2CC;">Reddit forum rank for Remembher</span>
+          </div>
+          </div>
+        </div>
+        <div class="sec-x" style="padding-top: 14px; padding-bottom: 16px; background: rgba(0,0,0,0.2); font-size: 13px; line-height: 1.5; color: #E8D2CC;">Team of five. Rankings as captured in January 2026.</div>
+      </article>
     </div>
 
+    <!-- ---- During my internship ---- -->
+    <div style="display: flex; flex-direction: column; gap: 28px; margin-top: 24px;">
+      <div class="rv" style="display: flex; flex-direction: column; gap: 4px;">
+        <span class="script" style="font-size: 30px; line-height: 1.05; color: #7A1414;">During my internship</span>
+        <h3 class="display" style="margin: 0; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; color: #241512;">GOOGLE ADS CLIENTS</h3>
+        <p style="margin: 8px 0 0; font-size: 17px; line-height: 1.6; color: #4A3831; max-width: 640px;">Google Ads campaigns I've worked on as part of my internship at echoVME Digital.</p>
+      </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px;">
-      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
           <img class="thumb" src="images/brand_kolors.jpg" alt="Kolors Hair &amp; Skin" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
@@ -280,7 +533,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Google Ads campaigns for a hair and skin care brand.</p>
         </div>
       </article>
-      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
           <img class="thumb" src="images/brand_diadem.jpg" alt="Diadem" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
@@ -290,7 +543,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Campaign management and optimisation on Google Ads.</p>
         </div>
       </article>
-      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
           <img class="thumb" src="images/brand_swarna.jpg" alt="Swarna Bhoomi" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
@@ -300,7 +553,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Lead-focused Google Ads campaigns.</p>
         </div>
       </article>
-      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
           <img class="thumb" src="images/brand_isha.jpg" alt="Isha Uni5, Perungalathur" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
@@ -310,7 +563,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Google Ads for an apartment project in Perungalathur, Chennai.</p>
         </div>
       </article>
-      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
           <img class="thumb" src="images/brand_llw.jpg" alt="Longer Life Wellness" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
@@ -320,7 +573,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Consultation-booking campaigns for a diabetes lifestyle brand in Anna Nagar, Chennai.</p>
         </div>
       </article>
-      <article class="card rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
           <img class="thumb" src="images/brand_sidharth.jpg" alt="Sidharth Housing" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
@@ -330,6 +583,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Search-term review and negative-keyword clean-up for a Chennai real estate developer.</p>
         </div>
       </article>
+    </div>
     </div>
 
     <!-- ---- Content creation: my reels first, then my client's ---- -->
@@ -468,11 +722,11 @@
   <!-- ================= TOOLS + AUTOMATION ================= -->
   <section id="tools" class="sec" style="box-sizing: border-box; background: #2A1210;">
     <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div class="rv"><div style="display: flex; flex-direction: column; gap: 6px;">
       <div class="script" style="font-size: 34px; line-height: 1.1; color: #E7B7B1;">What's in my stack</div>
       <h2 class="display" style="margin: 0; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; color: #FBF3E7;">TOOLS I USE</h2>
       <p style="margin: 12px 0 0; font-size: 17px; line-height: 1.6; color: #E8D2CC; max-width: 640px;">The platforms I use every day to run campaigns, create content and automate the boring parts.</p>
-    </div>
+    </div></div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
       <div class="tile rv" style="display: flex; align-items: center; gap: 18px; background: rgba(251,243,231,0.06); border: 1px solid rgba(251,243,231,0.14); border-radius: 20px; padding: 22px;">
@@ -640,6 +894,222 @@
     <span style="font-size: 13px; color: #C9AEA8;">&copy; Vignesh K &mdash; Performance Marketer, Chennai &amp; Vellore</span>
   </div>
 
+
+  <div class="modal" id="seo-modal" role="dialog" aria-modal="true" aria-labelledby="seo-title" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 26px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; flex-direction: column; gap: 18px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Case study</span>
+            <h3 id="seo-title" class="display" style="margin: 0; font-size: clamp(24px, 3.6vw, 34px); line-height: 1.08; color: #241512;">SEO GROUP PROJECT</h3>
+            <span class="msub" style="font-size: 14px; color: #4A3831;">January 2026 &middot; team of five &middot; my own pieces are listed under each brand</span>
+          </div>
+          <button type="button" class="xbtn" data-close aria-label="Close the case study">&times;</button>
+        </div>
+        <div class="tabbar" role="tablist" aria-label="Brands"><button type="button" class="tab" role="tab" id="t-rem" aria-controls="p-rem" data-tab="rem" aria-selected="true">Remembher</button><button type="button" class="tab" role="tab" id="t-mvit" aria-controls="p-mvit" data-tab="mvit" aria-selected="false">MVIT</button><button type="button" class="tab" role="tab" id="t-echo" aria-controls="p-echo" data-tab="echo" aria-selected="false">echoVME Digital</button><button type="button" class="tab" role="tab" id="t-learn" aria-controls="p-learn" data-tab="learn" aria-selected="false">What we learned</button></div>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px;">
+        <div class="panel" role="tabpanel" id="p-rem" aria-labelledby="t-rem" data-panel="rem" style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center;">
+            <span style="flex: 0 0 auto; background: #FFFFFF; border-radius: 14px; padding: 12px 16px; border: 1px solid rgba(36,21,18,0.1);"><img src="images/seo_rem_logo.png" alt="" style="display: block; height: 40px; width: auto;"></span>
+            <p style="flex: 1 1 300px; margin: 0; font-size: 16px; line-height: 1.6; color: #3A2A24;">Skincare brand in Bangalore that sells to businesses (B2B) and directly to customers (D2C).</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7A1414;">Target keywords</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Best B2B Organic Skincare Seller in Bangalore</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Best D2C Skincare Brand in Bangalore</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px 40px; background: #FBF3E7; border-radius: 20px; padding: 24px 26px; border: 1px solid rgba(122,20,20,0.12);">
+          <div class="stat" style="">
+            <span class="num" data-count="8" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 40px; color: #7A1414;">#8</span>
+            <span class="lbl" style="color: #4A3831;">Google search ranking</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="1" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 40px; color: #7A1414;">#1</span>
+            <span class="lbl" style="color: #4A3831;">Reddit forum ranking</span>
+          </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div class="ring" style="--p: 55;"><span>C</span></div>
+              <div class="stat"><span class="num" data-count="20" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">20</span><span class="lbl" style="color: #4A3831;">Fixes we recommended<br>after the site audit</span></div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px;">
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_rem_forum.jpg" alt="Google result showing the Reddit post about Remembher" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">Our Reddit post on Google for &ldquo;best D2C skincare brand in Bangalore&rdquo;</figcaption>
+              </figure>
+              
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_audit_rem.jpg" alt="Website audit report" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">Website audit: grade C</figcaption>
+              </figure>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;">
+              <h4 class="display" style="margin: 0; font-size: 22px; color: #241512;">Pieces I wrote</h4>
+              <span style="font-size: 14px; color: #4A3831;">5 pieces published by the team for this brand</span>
+            </div>
+              <a class="mine" href="https://medium.com/@vigneshdigitalmarketer13/why-remembher-is-the-best-b2b-d2c-skincare-seller-in-bangalore-2cf64a752719" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">Medium</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">Why Remembher is the best B2B &amp; D2C skincare seller in Bangalore</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+              <a class="mine" href="https://www.linkedin.com/pulse/science-skin-barrier-why-natural-ingredients-work-better-vignesh-k-ip3bc" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">LinkedIn</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">The Science of Skin Barrier: Why Natural Ingredients Work Better</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+              <a class="mine" href="https://www.quora.com/Why-always-Essential-Oils-vs-Fragrance-Oils-What-You-Need-to-Know-Before-Buying/answer/Vignesh-Digitalmarketer" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">Quora</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">Essential Oils vs. Fragrance Oils: What You Need to Know Before Buying</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+              <a class="mine" href="https://medium.com/@vigneshdigitalmarketer13/best-b2b-organic-skincare-seller-in-bangalore-remembher-in-a29ee5a80504" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">Medium</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">Best B2B Organic Skincare Seller in Bangalore | Remembher.in</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="p-mvit" aria-labelledby="t-mvit" data-panel="mvit" hidden style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center;">
+            <span style="flex: 0 0 auto; background: #111111; border-radius: 14px; padding: 12px 16px; border: 1px solid rgba(36,21,18,0.1);"><img src="images/seo_mvit_logo2.jpg" alt="" style="display: block; height: 40px; width: auto;"></span>
+            <p style="flex: 1 1 300px; margin: 0; font-size: 16px; line-height: 1.6; color: #3A2A24;">Manakula Vinayagar Institute of Technology, an engineering college in Puducherry.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7A1414;">Target keywords</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Best Engineering College in Pondicherry</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">Engineering College in Pondicherry</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px 40px; background: #FBF3E7; border-radius: 20px; padding: 24px 26px; border: 1px solid rgba(122,20,20,0.12);">
+          <div class="stat" style="">
+            <span class="num" data-count="5" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 40px; color: #7A1414;">#5</span>
+            <span class="lbl" style="color: #4A3831;">Google search ranking</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="11" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 40px; color: #7A1414;">#11</span>
+            <span class="lbl" style="color: #4A3831;">Google Images ranking</span>
+          </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div class="ring" style="--p: 72;"><span>B</span></div>
+              <div class="stat"><span class="num" data-count="14" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">14</span><span class="lbl" style="color: #4A3831;">Fixes we recommended<br>after the site audit</span></div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px;">
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_mvit_web.jpg" alt="Google result for best engineering college in Pondicherry" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">MVIT website on Google &middot; #5</figcaption>
+              </figure>
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_mvit_img.jpg" alt="Google Images result showing MVIT" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">MVIT in Google Images &middot; #11</figcaption>
+              </figure>
+              
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_audit_mvit.jpg" alt="Website audit report" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">Website audit: grade B</figcaption>
+              </figure>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;">
+              <h4 class="display" style="margin: 0; font-size: 22px; color: #241512;">Pieces I wrote</h4>
+              <span style="font-size: 14px; color: #4A3831;">4 pieces published by the team for this brand</span>
+            </div>
+              <a class="mine" href="https://www.linkedin.com/pulse/best-engineering-college-pondicherry-recognized-aicte-vignesh-k-v0d3c" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">LinkedIn</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">Best Engineering College in Pondicherry recognised by AICTE &amp; NAAC</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+              <a class="mine" href="https://www.quora.com/What-are-the-top-10-engineering-branches-with-the-best-career-opportunities-in-2026/answer/Vignesh-Digitalmarketer" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">Quora</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">Top 10 engineering branches with the best career opportunities in 2026</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="p-echo" aria-labelledby="t-echo" data-panel="echo" hidden style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center;">
+            <span style="flex: 0 0 auto; background: #FFFFFF; border-radius: 14px; padding: 12px 16px; border: 1px solid rgba(36,21,18,0.1);"><img src="images/seo_echo_logo.png" alt="" style="display: block; height: 40px; width: auto;"></span>
+            <p style="flex: 1 1 300px; margin: 0; font-size: 16px; line-height: 1.6; color: #3A2A24;">echoVME Digital, a digital marketing agency in Chennai.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7A1414;">Target keywords</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">SEO Agency in Chennai</span>
+            <span class="chip" style="background: #EBD5C6; color: #5A1010;">SEO Company in Chennai</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px 40px; background: #FBF3E7; border-radius: 20px; padding: 24px 26px; border: 1px solid rgba(122,20,20,0.12);">
+          <div class="stat" style="">
+            <span class="num" data-count="4" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 40px; color: #7A1414;">#4</span>
+            <span class="lbl" style="color: #4A3831;">Google search ranking</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="2" data-dec="0" data-prefix="#" data-suffix="" style="font-size: 40px; color: #7A1414;">#2</span>
+            <span class="lbl" style="color: #4A3831;">Forum ranking</span>
+          </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div class="ring" style="--p: 88;"><span>A-</span></div>
+              <div class="stat"><span class="num" data-count="9" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">9</span><span class="lbl" style="color: #4A3831;">Fixes we recommended<br>after the site audit</span></div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px;">
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_echo_web.jpg" alt="Google result for SEO agency in Chennai showing echoVME" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">echoVME website on Google &middot; #4</figcaption>
+              </figure>
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_echo_forum.jpg" alt="Google result showing the Reddit thread mentioning echoVME" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">Our Reddit thread on Google &middot; #2</figcaption>
+              </figure>
+              
+              <figure class="proof" style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                <img src="images/seo_audit_echo.jpg" alt="Website audit report" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(36,21,18,0.15); background: #1F1F1F;">
+                <figcaption style="font-size: 14px; font-weight: 700; color: #7A1414;">Website audit: grade A-</figcaption>
+              </figure>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;">
+              <h4 class="display" style="margin: 0; font-size: 22px; color: #241512;">Pieces I wrote</h4>
+              <span style="font-size: 14px; color: #4A3831;">4 pieces published by the team for this brand</span>
+            </div>
+              <a class="mine" href="https://www.quora.com/What-is-the-best-SEO-agency-in-Chennai-that-boosts-social-engagement-How-does-EchoVME-lead/answer/Vignesh-Digitalmarketer" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.16); border-radius: 16px; padding: 14px 16px; color: #241512;">
+                <span style="flex: 0 0 auto; background: #7A1414; color: #FBF3E7; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;">Quora</span>
+                <span style="flex: 1 1 auto; font-size: 15px; font-weight: 600; line-height: 1.4;">Best SEO agency in Chennai that boosts social engagement: how echoVME leads</span>
+                <span aria-hidden="true" style="flex: 0 0 auto; color: #7A1414; font-size: 18px;">&nearr;</span>
+              </a>
+          </div>
+        </div>
+        <div class="panel" role="tabpanel" id="p-learn" aria-labelledby="t-learn" data-panel="learn" hidden style="display: flex; flex-direction: column; gap: 18px;">
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A2A24;">What the project taught us about search in 2026:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+            <div class="jcard" style="display: flex; gap: 16px; align-items: flex-start; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 18px; padding: 20px;">
+              <span class="display" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: #7A1414; color: #FBF3E7; display: flex; align-items: center; justify-content: center; font-size: 17px;">01</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A2A24;">Search is about understanding intent, not just matching keywords.</p>
+            </div>
+            <div class="jcard" style="display: flex; gap: 16px; align-items: flex-start; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 18px; padding: 20px;">
+              <span class="display" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: #7A1414; color: #FBF3E7; display: flex; align-items: center; justify-content: center; font-size: 17px;">02</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A2A24;">Visibility now includes AI answers and summaries, not only the blue links.</p>
+            </div>
+            <div class="jcard" style="display: flex; gap: 16px; align-items: flex-start; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 18px; padding: 20px;">
+              <span class="display" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: #7A1414; color: #FBF3E7; display: flex; align-items: center; justify-content: center; font-size: 17px;">03</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A2A24;">Clear structure, accuracy and trust signals make content easy for AI to reuse.</p>
+            </div>
+            <div class="jcard" style="display: flex; gap: 16px; align-items: flex-start; background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 18px; padding: 20px;">
+              <span class="display" style="flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: #7A1414; color: #FBF3E7; display: flex; align-items: center; justify-content: center; font-size: 17px;">04</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A2A24;">Write for people first, and make it easy for machines to read too.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- flying cursor: plane + trail, moved by the script below -->
   <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
   <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
@@ -661,12 +1131,178 @@ class Component extends DCLogic {
   componentDidMount() {
     this._tries = 0;
     this._startFly();
+    this._initFx();
   }
 
   componentWillUnmount() {
     if (this._stopFly) this._stopFly();
     if (this._retry) clearTimeout(this._retry);
+    if (this._fxRetry) clearTimeout(this._fxRetry);
+    if (this._stopFx) this._stopFx();
   }
+
+  /* ---------- motion + interactions (count-ups, popup, reveal fallback, nav, tilt) ---------- */
+  _initFx() {
+    if (typeof window === 'undefined' || !document.querySelector) return;
+    const root = document.querySelector('.topnav');
+    if (!root) {
+      if ((this._fxTries = (this._fxTries || 0) + 1) < 40) this._fxRetry = setTimeout(() => this._initFx(), 250);
+      return;
+    }
+    const offs = [];
+    const on = (t, ev, fn, o) => { t.addEventListener(ev, fn, o); offs.push(() => t.removeEventListener(ev, fn, o)); };
+    const mm = (q) => window.matchMedia && window.matchMedia(q).matches;
+    const still = mm('(prefers-reduced-motion: reduce)');
+    const fine = mm('(hover: hover) and (pointer: fine)');
+    const hasIO = 'IntersectionObserver' in window;
+    const html = document.documentElement;
+
+    /* count-up numbers */
+    const fmt = (n, d) => d ? n.toFixed(d) : Math.round(n).toLocaleString('en-IN');
+    const runCount = (el) => {
+      if (el._counted) return; el._counted = true;
+      const end = parseFloat(el.getAttribute('data-count')) || 0;
+      const pre = el.getAttribute('data-prefix') || '', suf = el.getAttribute('data-suffix') || '';
+      const dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+      const put = (v) => { el.textContent = pre + fmt(v, dec) + suf; };
+      if (still) { put(end); return; }
+      const dur = end > 1000 ? 1900 : 1300, t0 = performance.now();
+      const ease = (t) => 1 - Math.pow(1 - t, 4);
+      const step = (now) => {
+        const t = Math.min(1, (now - t0) / dur);
+        put(end * ease(t));
+        if (t < 1) requestAnimationFrame(step); else { put(end); el.classList.add('done'); }
+      };
+      put(0); requestAnimationFrame(step);
+    };
+    const nums = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+    let countIO = null;
+    if (hasIO && !still) {
+      countIO = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { runCount(e.target); countIO.unobserve(e.target); } }), { threshold: 0.6 });
+      nums.forEach((n) => { if (!n.closest('.modal')) countIO.observe(n); });
+    }
+
+    /* reveal fallback where scroll-driven animations are missing (older Safari, Firefox) */
+    let revIO = null;
+    const cssView = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+    if (!cssView && hasIO && !still) {
+      const items = Array.prototype.slice.call(document.querySelectorAll('.rv, .rvs'));
+      items.forEach((el) => {
+        const sib = Array.prototype.filter.call(el.parentNode.children, (c) => c.classList.contains('rv') || c.classList.contains('rvs'));
+        el.style.transitionDelay = (Math.min(sib.indexOf(el), 5) * 90) + 'ms';
+      });
+      html.classList.add('io');
+      revIO = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); revIO.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      items.forEach((el) => revIO.observe(el));
+    }
+
+    /* sticky nav state, scroll progress, hero parallax */
+    const bar = document.querySelector('.progress');
+    const heroImg = document.querySelector('.hero-img');
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const y = window.scrollY || window.pageYOffset || 0;
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        root.classList.toggle('scrolled', y > 24);
+        if (bar) bar.style.transform = 'scaleX(' + Math.min(1, y / max).toFixed(4) + ')';
+        if (heroImg && !still && y < 1100 && window.innerWidth > 900) heroImg.style.translate = '0 ' + (y * 0.22).toFixed(1) + 'px';
+      });
+    };
+    on(window, 'scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* highlight the nav link of the section on screen */
+    let navIO = null;
+    if (hasIO) {
+      const links = Array.prototype.slice.call(document.querySelectorAll('.navlinks a[href^="#"]'));
+      navIO = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }), { rootMargin: '-45% 0px -50% 0px' });
+      links.forEach((a) => { const t = document.getElementById(a.getAttribute('href').slice(1)); if (t) navIO.observe(t); });
+    }
+
+    /* card tilt with a soft light sheen, and magnetic buttons (mouse only) */
+    if (fine && !still) {
+      Array.prototype.forEach.call(document.querySelectorAll('.tilt'), (el) => {
+        const lift = el.classList.contains('card') ? -6 : -4, deg = el.classList.contains('feat') ? 3 : 5;
+        on(el, 'mousemove', (e) => {
+          const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+          el.style.setProperty('--mx', (px * 100).toFixed(1) + '%'); el.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+          el.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease';
+          el.style.transform = 'perspective(1000px) rotateX(' + ((0.5 - py) * deg).toFixed(2) + 'deg) rotateY(' + ((px - 0.5) * deg).toFixed(2) + 'deg) translateY(' + lift + 'px)';
+        });
+        on(el, 'mouseleave', () => { el.style.transition = 'transform 0.5s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease'; el.style.transform = ''; });
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.btn'), (el) => {
+        on(el, 'mousemove', (e) => {
+          const r = el.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+          el.style.transform = 'translate(' + (dx * 0.18).toFixed(1) + 'px,' + (dy * 0.28 - 3).toFixed(1) + 'px)';
+        });
+        on(el, 'mouseleave', () => { el.style.transform = ''; });
+      });
+    }
+
+    /* case-study popup */
+    let lastFocus = null, openEl = null;
+    const closeModal = () => {
+      if (!openEl) return;
+      openEl.classList.remove('open'); openEl.setAttribute('aria-hidden', 'true');
+      html.classList.remove('lock');
+      const m = openEl; setTimeout(() => { m.classList.remove('inline'); m.style.top = ''; }, 360);
+      openEl = null;
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    const openModal = (id, trigger) => {
+      const m = document.getElementById(id); if (!m) return;
+      lastFocus = trigger; openEl = m;
+      /* inside a very tall preview frame, show the popup next to the button instead of mid-page */
+      if (window.innerHeight > 1800 && trigger) {
+        const top = trigger.getBoundingClientRect().top + (window.scrollY || 0);
+        m.classList.add('inline'); m.style.top = Math.max(0, top - 420) + 'px';
+      }
+      m.setAttribute('aria-hidden', 'false');
+      void m.offsetWidth; m.classList.add('open');
+      if (!m.classList.contains('inline')) html.classList.add('lock');
+      const x = m.querySelector('.xbtn'); if (x) setTimeout(() => x.focus(), 60);
+      const sel = m.querySelector('.panel:not([hidden])'); if (sel) Array.prototype.forEach.call(sel.querySelectorAll('[data-count]'), (n) => { n._counted = false; runCount(n); });
+    };
+    const selectTab = (m, key) => {
+      Array.prototype.forEach.call(m.querySelectorAll('[data-tab]'), (t) => t.setAttribute('aria-selected', t.getAttribute('data-tab') === key ? 'true' : 'false'));
+      Array.prototype.forEach.call(m.querySelectorAll('[data-panel]'), (p) => {
+        const show = p.getAttribute('data-panel') === key;
+        if (show) { p.removeAttribute('hidden'); Array.prototype.forEach.call(p.querySelectorAll('[data-count]'), (n) => { n._counted = false; runCount(n); }); }
+        else p.setAttribute('hidden', '');
+      });
+      const sheet = m.querySelector('.sheet'); if (sheet && sheet.scrollTop > 160) sheet.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+    };
+    on(document, 'click', (e) => {
+      const t = e.target && e.target.closest ? e.target : null; if (!t) return;
+      const op = t.closest('[data-open]'); if (op) { e.preventDefault(); openModal(op.getAttribute('data-open'), op); return; }
+      if (openEl && t.closest('[data-close]')) { closeModal(); return; }
+      const tab = t.closest('[data-tab]'); if (tab) selectTab(tab.closest('.modal'), tab.getAttribute('data-tab'));
+    });
+    on(document, 'keydown', (e) => {
+      if (!openEl) return;
+      if (e.key === 'Escape') { closeModal(); return; }
+      const tab = e.target && e.target.closest && e.target.closest('[role="tab"]');
+      if (tab && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) {
+        const all = Array.prototype.slice.call(openEl.querySelectorAll('[role="tab"]'));
+        const nx = all[(all.indexOf(tab) + (e.key === 'ArrowRight' ? 1 : all.length - 1)) % all.length];
+        nx.focus(); selectTab(openEl, nx.getAttribute('data-tab'));
+      }
+    });
+
+    this._stopFx = () => {
+      offs.forEach((f) => f());
+      [countIO, revIO, navIO].forEach((o) => o && o.disconnect());
+      html.classList.remove('io', 'lock');
+    };
+  }
+
 
   /* Paper-plane cursor: the plane's nose sits exactly on the pointer, turns toward
      the direction of travel, and leaves a short fading trail behind it. */
