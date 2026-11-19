@@ -204,6 +204,103 @@
     .ring::before { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: #FBF3E7; }
     .ring span { position: relative; font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #7A1414; }
     html.lock { overflow: hidden; }
+    /* brand work cards + popups */
+    .mini { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; padding-top: 16px; border-top: 1px dashed rgba(122,20,20,0.22); }
+    .mini .lbl { font-size: 13px !important; }
+    .vbtn { margin-top: auto; align-self: flex-start; font: inherit; font-size: 15px; font-weight: 700; border: 0; border-radius: 999px; padding: 13px 22px; background: #7A1414; color: #FBF3E7; display: inline-flex; align-items: center; gap: 10px; transition: background 0.25s ease, box-shadow 0.25s ease; }
+    .vbtn span { transition: transform 0.3s ease; }
+    .vbtn:hover { background: #5A0E0E; box-shadow: 0 12px 24px rgba(122,20,20,0.3); }
+    .vbtn:hover span { transform: translateX(5px); }
+    .card .mini + .vbtn { margin-top: 18px; }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+    .kpi { background: #FBF3E7; border: 1px solid rgba(122,20,20,0.14); border-radius: 18px; padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .kpi .lbl { font-size: 13.5px; color: #4A3831; line-height: 1.35; }
+    .kpi .num { font-family: 'Archivo Black', sans-serif; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .wblock .chip[style*='#FFFFFF'] { border: 1px solid rgba(122,20,20,0.2); }
+    .wblock { background: #FBF3E7; border: 1px solid rgba(122,20,20,0.12); border-radius: 22px; padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .bhead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 14px; }
+    .bhead h4 { margin: 0; font-size: 20px; color: #241512; }
+    .bnote { font-size: 13px; font-weight: 600; color: #7A1414; }
+    .bars { display: flex; flex-direction: column; gap: 14px; }
+    .btop { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; margin-bottom: 6px; }
+    .blabel { font-weight: 700; color: #241512; } .bval { font-weight: 600; color: #7A1414; white-space: nowrap; }
+    .bsub { display: block; margin-top: 5px; font-size: 13px; color: #6A5750; }
+    .track { height: 12px; border-radius: 999px; background: rgba(122,20,20,0.1); overflow: hidden; }
+    .track i, .stack i, .fstep i { display: block; height: 100%; width: var(--w); border-radius: inherit; transform-origin: left center; }
+    @keyframes growX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes popUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .modal.open .grow { animation: growX 1.1s cubic-bezier(.2,.8,.2,1) both; animation-delay: var(--d, 0s); }
+    .modal.open .wmodal .pop, .wmodal.open .pop { animation: popUp 0.6s cubic-bezier(.2,.8,.2,1) both; animation-delay: var(--d, 0s); }
+    .stack { display: flex; height: 26px; border-radius: 999px; overflow: hidden; background: rgba(122,20,20,0.1); gap: 3px; }
+    .stack i { border-radius: 0; flex: 0 0 var(--w); }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; color: #3A2A24; }
+    .legend span { display: inline-flex; align-items: center; gap: 8px; } .legend b { width: 12px; height: 12px; border-radius: 4px; display: inline-block; } .legend em { font-style: normal; font-weight: 700; color: #7A1414; }
+    .camps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .camp { background: #FFFFFF; border: 1px solid rgba(122,20,20,0.12); border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+    .ckind { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #A4372E; }
+    .cname { font-family: 'Archivo Black', sans-serif; font-size: 17px; color: #241512; } .cbud { font-size: 14px; font-weight: 700; color: #7A1414; }
+    .camp ul { margin: 8px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.6; color: #4A3831; }
+    .phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .phase { position: relative; background: #2A1210; color: #FBF3E7; border-radius: 16px; padding: 18px; } .phase span { font-family: 'Archivo Black', sans-serif; font-size: 26px; color: #F0A8A0; }
+    .phase b { display: block; margin-top: 6px; font-size: 16px; } .phase p { margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #E8D2CC; }
+    .serp { background: #FFFFFF; border-radius: 18px; padding: 18px; border: 1px solid #E3E3E3; font-family: Arial, sans-serif; }
+    .sbox { display: flex; align-items: center; gap: 10px; border: 1px solid #DFE1E5; border-radius: 999px; padding: 11px 16px; box-shadow: 0 1px 6px rgba(32,33,36,0.18); font-size: 15px; color: #202124; }
+    .typing { display: inline-block; overflow: hidden; white-space: nowrap; border-right: 2px solid #202124; max-width: 100%; }
+    @keyframes typeIn { from { width: 0; } to { width: 24ch; } } @keyframes caret { 50% { border-color: transparent; } }
+    .modal.open .typing { width: 24ch; animation: typeIn 1.6s steps(25) 0.4s both, caret 0.8s step-end infinite; }
+    .adcard { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .admeta { display: flex; gap: 8px; align-items: center; font-size: 13px; color: #202124; } .spons { font-weight: 700; }
+    .cycle { display: grid; } .advar { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 4px; opacity: 0; }
+    @keyframes cyc { 0% { opacity: 0; transform: translateY(6px); } 4%, 30% { opacity: 1; transform: none; } 34%, 100% { opacity: 0; } }
+    .advar { animation: cyc 10.5s infinite; } .advar:nth-child(2) { animation-delay: 3.5s; } .advar:nth-child(3) { animation-delay: 7s; }
+    .adh { font-size: 19px; line-height: 1.3; color: #1A0DAB; } .add { font-size: 14px; line-height: 1.5; color: #4D5156; }
+    .sitelinks { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 4px; font-size: 14px; color: #1A0DAB; }
+    .funnel { display: flex; flex-direction: column; gap: 12px; }
+    .fstep { position: relative; height: 48px; border-radius: 14px; background: rgba(122,20,20,0.08); overflow: hidden; }
+    .fstep i { position: absolute; inset: 0 auto 0 0; background: #7A1414; opacity: 0.9; border-radius: 14px; }
+    .fstep span { position: relative; z-index: 1; display: flex; align-items: center; height: 100%; padding: 0 16px; font-size: 15px; color: #FFFFFF; text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+    .fstep b { font-family: 'Archivo Black', sans-serif; font-size: 20px; margin-right: 8px; }
+    .negs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .neg { position: relative; background: #FFFFFF; border: 1px solid rgba(192,57,43,0.35); border-radius: 999px; padding: 8px 14px; font-size: 14px; color: #6A2A22; }
+    .neg span { position: relative; } .neg span::after { content: ''; position: absolute; left: -2px; right: -2px; top: 52%; height: 2px; background: #C0392B; transform: scaleX(0); transform-origin: left; }
+    @keyframes strike { to { transform: scaleX(1); } }
+    .modal.open .neg span::after { animation: strike 0.5s ease forwards; animation-delay: calc(var(--d, 0s) + 0.7s); }
+    .crts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+    .crt { position: relative; overflow: hidden; border-radius: 18px; padding: 18px; min-height: 190px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease; }
+    .crt:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 18px 30px rgba(0,0,0,0.2); }
+    .crt.gold { background: linear-gradient(135deg, #7A4A12, #C99A3B 55%, #F3D27A); color: #FFF8E7; }
+    .crt.silver { background: linear-gradient(135deg, #4A4F57, #9AA3AE 55%, #E4E8EC); color: #FFFFFF; }
+    .crt::after { content: ''; position: absolute; top: -40%; bottom: -40%; width: 40%; left: -60%; background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,0.45), rgba(255,255,255,0)); transform: skewX(-18deg); }
+    @keyframes sheen { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+    .modal.open .crt::after { animation: sheen 4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+    .ctag { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; opacity: 0.9; } .ccon { font-family: 'Archivo Black', sans-serif; font-size: 17px; line-height: 1.2; }
+    .chook { font-size: 14.5px; line-height: 1.5; flex: 1 1 auto; } .ccta { align-self: flex-start; font-size: 13px; font-weight: 800; background: rgba(0,0,0,0.28); padding: 7px 12px; border-radius: 999px; }
+    .lpwrap { display: flex; flex-wrap: wrap; gap: 26px; align-items: flex-start; }
+    .phone { flex: 0 0 210px; height: 400px; border-radius: 34px; background: #1C0D0B; padding: 10px; box-shadow: 0 18px 34px rgba(0,0,0,0.3); margin: 0 auto; }
+    .screen { height: 100%; border-radius: 26px; overflow: hidden; background: #FFFFFF; }
+    @keyframes scrollPage { 0%, 8% { transform: translateY(0); } 92%, 100% { transform: translateY(-58%); } }
+    .scroller { padding: 10px; display: flex; flex-direction: column; gap: 9px; animation: scrollPage 11s ease-in-out infinite alternate; }
+    .scroller i, .wf-title, .wf-text, .wf-card, .wf-video, .wf-acc, .wf-bar { display: block; background: #EADBD3; border-radius: 6px; }
+    .wf-bar { height: 12px; } .wf-hero { border-radius: 12px; padding: 12px; color: #FFFFFF; display: flex; flex-direction: column; gap: 6px; min-height: 120px; }
+    .wf-hero b { font-size: 11px; line-height: 1.3; } .wf-hero i { height: 6px; background: rgba(255,255,255,0.55); } .wf-hero i.short { width: 60%; }
+    .wf-hero span { margin-top: auto; align-self: flex-start; font-size: 9px; font-weight: 800; background: #FFFFFF; color: #C8102E; padding: 5px 8px; border-radius: 999px; }
+    .wf-row, .wf-grid, .wf-steps { display: grid; gap: 6px; } .wf-row { grid-template-columns: repeat(3, 1fr); } .wf-row i { height: 30px; }
+    .wf-grid { grid-template-columns: 1fr 1fr; } .wf-grid i { height: 44px; } .wf-steps { grid-template-columns: repeat(5, 1fr); } .wf-steps i { height: 22px; border-radius: 50%; }
+    .wf-title { height: 10px; width: 60%; background: #C9A99D; } .wf-text { height: 7px; } .wf-text.short { width: 70%; }
+    .wf-card { height: 34px; } .wf-video { height: 80px; background: #3A2A24; } .wf-acc { height: 16px; }
+    .slist { flex: 1 1 260px; margin: 0; padding-left: 22px; columns: 2 200px; column-gap: 24px; font-size: 14.5px; line-height: 1.5; color: #3A2A24; }
+    .slist li { break-inside: avoid; padding: 3px 0; } .slist li::marker { color: #7A1414; font-weight: 700; }
+    .browser { border-radius: 16px; overflow: hidden; border: 1px solid rgba(36,21,18,0.14); background: #FFFFFF; box-shadow: 0 16px 30px rgba(36,21,18,0.14); }
+    .bbar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #EFE6DE; } .bbar i { width: 10px; height: 10px; border-radius: 50%; background: #C9A99D; }
+    .bbar span { margin-left: 10px; font-size: 12px; color: #6A5750; background: #FFFFFF; border-radius: 999px; padding: 3px 12px; }
+    .bpage { padding: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .wfb { border-radius: 10px; background: repeating-linear-gradient(135deg, #F4ECE6, #F4ECE6 10px, #EFE3DA 10px, #EFE3DA 20px); border: 1px dashed rgba(122,20,20,0.3); display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; font-size: 13px; font-weight: 700; color: #5A1010; }
+    .wfb.h1 { grid-column: 1 / -1; min-height: 40px; } .wfb.h2 { min-height: 70px; } .wfb.h3 { grid-column: 1 / -1; min-height: 120px; background: linear-gradient(135deg, #3A2A6B, #7A6FB0); color: #FFFFFF; border-style: solid; }
+    .usps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .usp { background: #FFFFFF; border: 1px solid rgba(122,20,20,0.12); border-radius: 16px; padding: 16px; font-size: 15px; font-weight: 600; line-height: 1.4; color: #241512; display: flex; flex-direction: column; gap: 6px; }
+    .usp span { font-family: 'Archivo Black', sans-serif; color: #7A1414; font-size: 20px; }
+    @media (max-width: 760px) { .kpi .num { font-size: 28px !important; } .wblock { padding: 18px; } .phone { flex-basis: 190px; height: 360px; } .bpage { grid-template-columns: 1fr; } .wfb.h2 { min-height: 50px; } }
+    @media (prefers-reduced-motion: reduce) { .advar:not(:first-child) { display: none; } .advar { opacity: 1 !important; } .scroller { animation: none !important; } .typing { width: auto !important; border: 0; } }
     @media (max-width: 760px) {
       .modal { padding: 10px; }
       .modal .sheet { max-height: calc(100vh - 20px); border-radius: 22px; }
@@ -536,35 +633,141 @@
     <div style="display: flex; flex-direction: column; gap: 28px; margin-top: 24px;">
       <div class="rv" style="display: flex; flex-direction: column; gap: 4px;">
         <span class="script" style="font-size: 30px; line-height: 1.05; color: #7A1414;">During my internship</span>
-        <h3 class="display" style="margin: 0; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; color: #241512;">GOOGLE ADS CLIENTS</h3>
-        <p style="margin: 8px 0 0; font-size: 17px; line-height: 1.6; color: #4A3831; max-width: 640px;">Google Ads campaigns I've worked on as part of my internship at echoVME Digital.</p>
+        <h3 class="display" style="margin: 0; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; color: #241512;">BRANDS I'VE WORKED ON</h3>
+        <p style="margin: 8px 0 0; font-size: 17px; line-height: 1.6; color: #4A3831; max-width: 640px;">Campaign plans, search-term clean-ups, landing pages and creative ideas from my internship at echoVME Digital. Tap <strong>View the work</strong> to see each one.</p>
       </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px;">
       <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
-          <img class="thumb" src="images/brand_kolors.jpg" alt="Kolors Hair &amp; Skin" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+          <img class="thumb" src="images/brand_kolors.jpg" alt="Kolors Hair &amp; Skin" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Beauty</span>
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Campaign plan</span>
           <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Kolors Hair &amp; Skin</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Google Ads campaigns for a hair and skin care brand.</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Full Google Search plan for the Adyar branch: budget split, keywords, ad copy and extensions.</p>
+          <div class="mini">
+          <div class="stat" style="">
+            <span class="num" data-count="200000" data-dec="0" data-prefix="&#8377;" data-suffix="" style="font-size: 30px; color: #7A1414;">&#8377;2,00,000</span>
+            <span class="lbl" style="color: #4A3831;">Monthly budget</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="49" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">49</span>
+            <span class="lbl" style="color: #4A3831;">Keywords</span>
+          </div>
+          </div>
+          <button type="button" class="btn vbtn" data-open="w-kolors">View the work <span aria-hidden="true">&rarr;</span></button>
         </div>
       </article>
       <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
-          <img class="thumb" src="images/brand_diadem.jpg" alt="Diadem" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+          <img class="thumb" src="images/brand_diadem.jpg" alt="Diadem" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads</span>
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Strategy</span>
           <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Diadem</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Campaign management and optimisation on Google Ads.</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Search and Performance Max launch strategy for an ethnic wear brand in Chennai.</p>
+          <div class="mini">
+          <div class="stat" style="">
+            <span class="num" data-count="100000" data-dec="0" data-prefix="&#8377;" data-suffix="" style="font-size: 30px; color: #7A1414;">&#8377;1,00,000</span>
+            <span class="lbl" style="color: #4A3831;">Monthly budget</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="5" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">5</span>
+            <span class="lbl" style="color: #4A3831;">Campaigns</span>
+          </div>
+          </div>
+          <button type="button" class="btn vbtn" data-open="w-diadem">View the work <span aria-hidden="true">&rarr;</span></button>
         </div>
       </article>
       <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
-          <img class="thumb" src="images/brand_swarna.jpg" alt="Swarna Bhoomi" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+          <img class="thumb" src="images/brand_sidharth.jpg" alt="Sidharth Housing" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Search terms</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Sidharth Housing</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Search-term review and negative-keyword clean-up for six location campaigns.</p>
+          <div class="mini">
+          <div class="stat" style="">
+            <span class="num" data-count="355" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">355</span>
+            <span class="lbl" style="color: #4A3831;">Search terms</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="92" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">92</span>
+            <span class="lbl" style="color: #4A3831;">Negatives</span>
+          </div>
+          </div>
+          <button type="button" class="btn vbtn" data-open="w-sidharth">View the work <span aria-hidden="true">&rarr;</span></button>
+        </div>
+      </article>
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_bhima.jpg" alt="Bhima Jewellery" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Creative ideas &middot; Jewellery</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Bhima Jewellery</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">60 ad creative ideas for the e-Gold and e-Silver savings apps.</p>
+          <div class="mini">
+          <div class="stat" style="">
+            <span class="num" data-count="60" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">60</span>
+            <span class="lbl" style="color: #4A3831;">Ideas</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="2" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">2</span>
+            <span class="lbl" style="color: #4A3831;">Apps</span>
+          </div>
+          </div>
+          <button type="button" class="btn vbtn" data-open="w-bhima">View the work <span aria-hidden="true">&rarr;</span></button>
+        </div>
+      </article>
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_rjr.jpg" alt="RJR Herbal Hospitals" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Landing page &middot; Healthcare</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">RJR Herbal Hospitals</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Asthma treatment landing page planned for Google Ads leads in Andhra Pradesh.</p>
+          <div class="mini">
+          <div class="stat" style="">
+            <span class="num" data-count="16" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">16</span>
+            <span class="lbl" style="color: #4A3831;">Sections</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="11" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">11</span>
+            <span class="lbl" style="color: #4A3831;">Cities</span>
+          </div>
+          </div>
+          <button type="button" class="btn vbtn" data-open="w-rjr">View the work <span aria-hidden="true">&rarr;</span></button>
+        </div>
+      </article>
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_jain.jpg" alt="Jains Arunika" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Landing page &middot; Real estate</span>
+          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Jains Arunika</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Landing page wireframe for a 2 &amp; 3 BHK project in Pallavaram, Chennai.</p>
+          <div class="mini">
+          <div class="stat" style="">
+            <span class="num" data-count="12" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">12</span>
+            <span class="lbl" style="color: #4A3831;">Sections</span>
+          </div>
+          <div class="stat" style="">
+            <span class="num" data-count="5" data-dec="0" data-prefix="" data-suffix="" style="font-size: 30px; color: #7A1414;">5</span>
+            <span class="lbl" style="color: #4A3831;">USPs</span>
+          </div>
+          </div>
+          <button type="button" class="btn vbtn" data-open="w-jains">View the work <span aria-hidden="true">&rarr;</span></button>
+        </div>
+      </article>
+      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
+        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
+          <img class="thumb" src="images/brand_swarna.jpg" alt="Swarna Bhoomi" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+        </div>
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
           <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads</span>
           <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Swarna Bhoomi</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Lead-focused Google Ads campaigns.</p>
@@ -572,9 +775,9 @@
       </article>
       <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
-          <img class="thumb" src="images/brand_isha.jpg" alt="Isha Uni5, Perungalathur" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+          <img class="thumb" src="images/brand_isha.jpg" alt="Isha Uni5, Perungalathur" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
           <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Real estate</span>
           <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Isha Uni5, Perungalathur</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Google Ads for an apartment project in Perungalathur, Chennai.</p>
@@ -582,22 +785,12 @@
       </article>
       <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
         <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
-          <img class="thumb" src="images/brand_llw.jpg" alt="Longer Life Wellness" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
+          <img class="thumb" src="images/brand_llw.jpg" alt="Longer Life Wellness" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto;">
           <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Healthcare</span>
           <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Longer Life Wellness</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Consultation-booking campaigns for a diabetes lifestyle brand in Anna Nagar, Chennai.</p>
-        </div>
-      </article>
-      <article class="card tilt rv" style="display: flex; flex-direction: column; background: #FBF3E7; border-radius: 20px; overflow: hidden; border: 1px solid rgba(122,20,20,0.12);">
-        <div style="aspect-ratio: 46 / 25; background: #EFDCCF; overflow: hidden; border-bottom: 1px solid rgba(122,20,20,0.12);">
-          <img class="thumb" src="images/brand_sidharth.jpg" alt="Sidharth Housing" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;">
-        </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #7A1414; text-transform: uppercase;">Google Ads &middot; Search terms</span>
-          <h3 class="display" style="margin: 0; font-size: 24px; line-height: 1.2; color: #241512;">Sidharth Housing</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A3831;">Search-term review and negative-keyword clean-up for a Chennai real estate developer.</p>
         </div>
       </article>
     </div>
@@ -1138,6 +1331,377 @@
       </div>
     </div>
   </div>
+  <div class="modal wmodal" id="w-kolors" role="dialog" aria-modal="true" aria-labelledby="w-kolors-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Google Ads plan</span>
+          <h3 id="w-kolors-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">KOLORS HAIR &amp; SKIN, ADYAR</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">Search campaign plan &middot; budget, structure, keywords and ad copy</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">Goal: more walk-ins to the Kolors Adyar branch (Kottivakkam, OMR) from Google Search. I planned the whole account: monthly budget split, campaign and ad group structure, keywords with search volumes, responsive search ad copy and extensions.</p>
+          <div class="kpis">
+            <div class="kpi pop" style="--d: 0.05s;"><span class="num" data-count="2" data-dec="0" data-prefix="&#8377;" data-suffix="L" style="font-size: 34px; color: #7A1414;">&#8377;2L</span><span class="lbl">Monthly budget (&#8377;2,00,000)</span></div>
+            <div class="kpi pop" style="--d: 0.13s;"><span class="num" data-count="5" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">5</span><span class="lbl">Campaigns</span></div>
+            <div class="kpi pop" style="--d: 0.21s;"><span class="num" data-count="8" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">8</span><span class="lbl">Ad groups</span></div>
+            <div class="kpi pop" style="--d: 0.29s;"><span class="num" data-count="49" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">49</span><span class="lbl">Keywords researched</span></div>
+            <div class="kpi pop" style="--d: 0.37s;"><span class="num" data-count="120" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">120</span><span class="lbl">Ad headlines written</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">How the budget is split</h4><span class="bnote">Monthly</span></div><div class="bars">
+            <div class="brow">
+              <div class="btop"><span class="blabel">Skin Care</span><span class="bval">40% &middot; &#8377;80,000</span></div>
+              <div class="track"><i class="grow" style="--w: 100%; --d: 0.15s; background: #7A1414;"></i></div><span class="bsub">Maximize Conversions</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Hair Care</span><span class="bval">35% &middot; &#8377;70,000</span></div>
+              <div class="track"><i class="grow" style="--w: 88%; --d: 0.27s; background: #7A1414;"></i></div><span class="bsub">Maximize Conversions</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Laser Hair Removal</span><span class="bval">12% &middot; &#8377;24,000</span></div>
+              <div class="track"><i class="grow" style="--w: 30%; --d: 0.39s; background: #7A1414;"></i></div><span class="bsub">Maximize Conversions</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Competitor Conquest</span><span class="bval">8% &middot; &#8377;16,000</span></div>
+              <div class="track"><i class="grow" style="--w: 20%; --d: 0.51s; background: #7A1414;"></i></div><span class="bsub">Manual CPC, kept away from Smart Bidding</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Branded</span><span class="bval">5% &middot; &#8377;10,000</span></div>
+              <div class="track"><i class="grow" style="--w: 12%; --d: 0.63s; background: #7A1414;"></i></div><span class="bsub">Target impression share</span>
+            </div>
+          </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">The ads, as searchers see them</h4><span class="bnote">One of 8 ad groups, 15 headlines each</span></div>
+            <div class="serp pop">
+              <div class="sbox"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5F6368" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M20 20l-4.8-4.8"></path></svg><span class="typing">hair loss treatment adyar</span></div>
+              <div class="adcard">
+                <div class="admeta"><span class="spons">Sponsored</span><span>kolorshairandskin.com &rsaquo; adyar</span></div>
+                <div class="cycle">
+                <div class="advar">
+                  <span class="adh">Hair Loss Treatment Adyar | Free Hair Loss Consultation | Expert Trichologist Care</span>
+                  <span class="add">Customized PRP &amp; hair loss treatment by expert trichologists. Free consultation.</span>
+                </div>
+                <div class="advar">
+                  <span class="adh">Acne Treatment Adyar | Clear Acne Scars Fast | Expert Dermatologist Care</span>
+                  <span class="add">Clinically proven solutions for acne scars &amp; pimple marks. Book now.</span>
+                </div>
+                <div class="advar">
+                  <span class="adh">Laser Hair Removal Adyar | Painless Laser Treatment | Book Free Consult Today</span>
+                  <span class="add">Painless, permanent laser hair removal for face &amp; body. Free consultation.</span>
+                </div>
+                </div>
+                <div class="sitelinks"><span>Hair Loss Treatment</span><span>Acne Scar Treatment</span><span>Laser Hair Removal</span><span>Locate Adyar Branch</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Keywords with the most demand</h4><span class="bnote">From Google Keyword Planner</span></div><div class="bars">
+            <div class="brow">
+              <div class="btop"><span class="blabel">prp treatment for hair</span><span class="bval">10K&ndash;100K / month</span></div>
+              <div class="track"><i class="grow" style="--w: 100%; --d: 0.15s; background: #C0392B;"></i></div>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">upper lip hair removal</span><span class="bval">10K&ndash;100K / month</span></div>
+              <div class="track"><i class="grow" style="--w: 100%; --d: 0.27s; background: #C0392B;"></i></div>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">hair fall treatment near me</span><span class="bval">1K&ndash;10K / month</span></div>
+              <div class="track"><i class="grow" style="--w: 40%; --d: 0.39s; background: #C0392B;"></i></div>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">hair transplant cost chennai</span><span class="bval">1K&ndash;10K / month</span></div>
+              <div class="track"><i class="grow" style="--w: 40%; --d: 0.51s; background: #C0392B;"></i></div><span class="bsub">Up 900% in 3 months</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">under eye dark circle treatment</span><span class="bval">1K&ndash;10K / month</span></div>
+              <div class="track"><i class="grow" style="--w: 40%; --d: 0.63s; background: #C0392B;"></i></div>
+            </div>
+          </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Built to bring people through the door</h4></div><div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="chip pop" style="--d: 0.10s; background: #EBD5C6; color: #5A1010;">Call extension with call tracking</span><span class="chip pop" style="--d: 0.15s; background: #EBD5C6; color: #5A1010;">Get Directions clicks</span><span class="chip pop" style="--d: 0.20s; background: #EBD5C6; color: #5A1010;">WhatsApp click-to-chat</span><span class="chip pop" style="--d: 0.25s; background: #EBD5C6; color: #5A1010;">Store visits</span><span class="chip pop" style="--d: 0.30s; background: #EBD5C6; color: #5A1010;">6 sitelinks</span><span class="chip pop" style="--d: 0.35s; background: #EBD5C6; color: #5A1010;">8 callouts</span><span class="chip pop" style="--d: 0.40s; background: #EBD5C6; color: #5A1010;">Structured snippets</span></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal wmodal" id="w-diadem" role="dialog" aria-modal="true" aria-labelledby="w-diadem-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Google Ads strategy</span>
+          <h3 id="w-diadem-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">DIADEM</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">Search + Performance Max launch plan for an ethnic wear brand</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">Diadem is an ethnic wear brand with a website and a physical store in Chennai. I planned how to spend &#8377;1,00,000 a month on Google Ads for the launch: high-intent bridal searches on Search, and the full catalogue on Performance Max.</p>
+          <div class="kpis">
+            <div class="kpi pop" style="--d: 0.05s;"><span class="num" data-count="1" data-dec="0" data-prefix="&#8377;" data-suffix="L" style="font-size: 34px; color: #7A1414;">&#8377;1L</span><span class="lbl">Monthly budget (&#8377;1,00,000)</span></div>
+            <div class="kpi pop" style="--d: 0.13s;"><span class="num" data-count="5" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">5</span><span class="lbl">Campaigns</span></div>
+            <div class="kpi pop" style="--d: 0.21s;"><span class="num" data-count="9" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">9</span><span class="lbl">Search ad groups</span></div>
+            <div class="kpi pop" style="--d: 0.29s;"><span class="num" data-count="6" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">6</span><span class="lbl">PMax asset groups</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Where every rupee goes</h4><span class="bnote">&#8377;1,00,000 / month</span></div><div class="stack"><i class="grow" style="--w: 5.0%; --d: 0.20s; background: #E8A598;" title="Branded search"></i><i class="grow" style="--w: 27.5%; --d: 0.35s; background: #7A1414;" title="Bridal Sarees"></i><i class="grow" style="--w: 23.5%; --d: 0.50s; background: #A4372E;" title="Bridal Lehengas"></i><i class="grow" style="--w: 24.0%; --d: 0.65s; background: #3A1715;" title="PMax: Women"></i><i class="grow" style="--w: 20.0%; --d: 0.80s; background: #6B4A44;" title="PMax: Men &amp; Kids"></i></div><div class="legend"><span class="pop" style="--d: 0.30s;"><b style="background: #E8A598;"></b>Branded search <em>&#8377;5,000</em></span><span class="pop" style="--d: 0.38s;"><b style="background: #7A1414;"></b>Bridal Sarees <em>&#8377;27,500</em></span><span class="pop" style="--d: 0.46s;"><b style="background: #A4372E;"></b>Bridal Lehengas <em>&#8377;23,500</em></span><span class="pop" style="--d: 0.54s;"><b style="background: #3A1715;"></b>PMax: Women <em>&#8377;24,000</em></span><span class="pop" style="--d: 0.62s;"><b style="background: #6B4A44;"></b>PMax: Men &amp; Kids <em>&#8377;20,000</em></span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Campaign structure</h4></div>
+            <div class="camps">
+              <div class="camp pop">
+                <span class="ckind">Search</span>
+                <span class="cname">Branded</span>
+                <span class="cbud">&#8377;5,000 / month</span>
+                <ul><li>Diadem brand terms</li></ul>
+              </div>
+              <div class="camp pop">
+                <span class="ckind">Search</span>
+                <span class="cname">Bridal Sarees</span>
+                <span class="cbud">&#8377;27,500 / month</span>
+                <ul><li>Kanchipuram Bridal Sarees</li><li>Banarasi Bridal Sarees</li><li>Designer Bridal Sarees</li><li>Bridal Saree Shop Chennai / Near Me</li></ul>
+              </div>
+              <div class="camp pop">
+                <span class="ckind">Search</span>
+                <span class="cname">Bridal Lehengas</span>
+                <span class="cbud">&#8377;23,500 / month</span>
+                <ul><li>Designer Bridal Lehengas</li><li>Wedding Lehenga Online</li><li>Bridal Lehenga Chennai / Near Me</li><li>Engagement Lehenga</li></ul>
+              </div>
+              <div class="camp pop">
+                <span class="ckind">Performance Max</span>
+                <span class="cname">Women's Ethnic Wear</span>
+                <span class="cbud">&#8377;24,000 / month</span>
+                <ul><li>Festive &amp; Occasion Wear</li><li>Everyday Ethnic Wear</li><li>Bridal Wear</li></ul>
+              </div>
+              <div class="camp pop">
+                <span class="ckind">Performance Max</span>
+                <span class="cname">Men's &amp; Kids</span>
+                <span class="cbud">&#8377;20,000 / month</span>
+                <ul><li>Menswear</li><li>Kidswear</li><li>Family &amp; Combo Sets</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Launch plan</h4></div>
+            <div class="phases">
+              <div class="phase pop" style="--d: 0.2s;"><span>01</span><b>Weeks 1&ndash;2</b><p>Launch Search and Performance Max</p></div>
+              <div class="phase pop" style="--d: 0.35s;"><span>02</span><b>Review</b><p>Check which campaigns bring sales and store visits</p></div>
+              <div class="phase pop" style="--d: 0.5s;"><span>03</span><b>Scale</b><p>Add Demand Gen and a Local store campaign for shoppers who want to try before they buy</p></div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal wmodal" id="w-sidharth" role="dialog" aria-modal="true" aria-labelledby="w-sidharth-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Search-term analysis</span>
+          <h3 id="w-sidharth-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">SIDHARTH CROWN</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">Negative keyword clean-up across six location campaigns</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">Sidharth Crown runs six location campaigns across north Chennai: Anna Nagar, Kolathur, Madhavaram, Perambur, Villivakkam and Puzhal. I went through the Google Ads search terms report line by line and flagged the searches that should be added as negative keywords, so the budget only goes to people looking for a flat in those areas.</p>
+          <div class="kpis">
+            <div class="kpi pop" style="--d: 0.05s;"><span class="num" data-count="423" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">423</span><span class="lbl">Search-term rows</span></div>
+            <div class="kpi pop" style="--d: 0.13s;"><span class="num" data-count="6" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">6</span><span class="lbl">Location campaigns</span></div>
+            <div class="kpi pop" style="--d: 0.21s;"><span class="num" data-count="92" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">92</span><span class="lbl">Negatives flagged</span></div>
+            <div class="kpi pop" style="--d: 0.29s;"><span class="num" data-count="7228" data-dec="0" data-prefix="&#8377;" data-suffix="" style="font-size: 34px; color: #7A1414;">&#8377;7,228</span><span class="lbl">Spend on irrelevant searches</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">From report to clean-up</h4></div>
+            <div class="funnel">
+              <div class="fstep pop" style="--d: 0.1s;"><i class="grow" style="--w: 100%; --d: 0.2s;"></i><span><b>355</b> unique search terms reviewed</span></div>
+              <div class="fstep pop" style="--d: 0.25s;"><i class="grow" style="--w: 74%; --d: 0.4s; background: #3E7D4F;"></i><span><b>263</b> relevant, kept running</span></div>
+              <div class="fstep pop" style="--d: 0.4s;"><i class="grow" style="--w: 26%; --d: 0.6s; background: #C0392B;"></i><span><b>92</b> flagged as negatives</span></div>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Why searches were flagged</h4></div><div class="bars">
+            <div class="brow">
+              <div class="btop"><span class="blabel">Other builders and projects</span><span class="bval">68 terms</span></div>
+              <div class="track"><i class="grow" style="--w: 100%; --d: 0.15s; background: #C0392B;"></i></div><span class="bsub">People looking for a different project by name</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Outside the target areas</span><span class="bval">16 terms</span></div>
+              <div class="track"><i class="grow" style="--w: 24%; --d: 0.27s; background: #C0392B;"></i></div><span class="bsub">Kilpauk, Kovilambakkam, Iyyappanthangal and more</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Resale / for sale by owner</span><span class="bval">&#8377;2,326 spent</span></div>
+              <div class="track"><i class="grow" style="--w: 4%; --d: 0.39s; background: #C0392B;"></i></div>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Property portals</span><span class="bval">&#8377;1,509 spent</span></div>
+              <div class="track"><i class="grow" style="--w: 4%; --d: 0.51s; background: #C0392B;"></i></div><span class="bsub">MagicBricks, NoBroker</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Wrong unit size</span><span class="bval">&#8377;922 spent</span></div>
+              <div class="track"><i class="grow" style="--w: 4%; --d: 0.63s; background: #C0392B;"></i></div><span class="bsub">1 RK and 4 BHK</span>
+            </div>
+            <div class="brow">
+              <div class="btop"><span class="blabel">Government housing board</span><span class="bval">2 terms</span></div>
+              <div class="track"><i class="grow" style="--w: 4%; --d: 0.75s; background: #C0392B;"></i></div>
+            </div>
+          </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">A few of the searches I cut</h4><span class="bnote">About 9% of recorded spend</span></div><div class="negs"><span class="neg pop" style="--d: 0.15s;"><span>magicbricks anna nagar</span></span><span class="neg pop" style="--d: 0.24s;"><span>nobroker anna nagar</span></span><span class="neg pop" style="--d: 0.33s;"><span>flats in anna nagar for sale by owner</span></span><span class="neg pop" style="--d: 0.42s;"><span>1rk in anna nagar</span></span><span class="neg pop" style="--d: 0.51s;"><span>kovilambakkam flats for sale</span></span><span class="neg pop" style="--d: 0.60s;"><span>arun excello anna nagar</span></span><span class="neg pop" style="--d: 0.69s;"><span>appaswamy altezza stratos</span></span><span class="neg pop" style="--d: 0.78s;"><span>tulive pavilion chennai</span></span><span class="neg pop" style="--d: 0.87s;"><span>anna nagar housing board</span></span></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal wmodal" id="w-bhima" role="dialog" aria-modal="true" aria-labelledby="w-bhima-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Creative ideation</span>
+          <h3 id="w-bhima-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">BHIMA JEWELLERY</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">60 ad ideas for the e-Gold and e-Silver savings apps</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">Bhima Jewellery's e-Gold and e-Silver apps let people save from &#8377;100 at a time, with up to 8% extra over a 330-day plan. I wrote 60 ad creative ideas for the two apps: for each one the concept, the angle, the hook copy, the call to action and the product benefit it sells.</p>
+          <div class="kpis">
+            <div class="kpi pop" style="--d: 0.05s;"><span class="num" data-count="60" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">60</span><span class="lbl">Creative ideas</span></div>
+            <div class="kpi pop" style="--d: 0.13s;"><span class="num" data-count="30" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">30</span><span class="lbl">For e-Gold</span></div>
+            <div class="kpi pop" style="--d: 0.21s;"><span class="num" data-count="30" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">30</span><span class="lbl">For e-Silver</span></div>
+            <div class="kpi pop" style="--d: 0.29s;"><span class="num" data-count="100" data-dec="0" data-prefix="&#8377;" data-suffix="" style="font-size: 34px; color: #7A1414;">&#8377;100</span><span class="lbl">Lowest starting amount</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Six of the 60, as ad cards</h4><span class="bnote">Hover a card</span></div><div class="crts">
+              <div class="crt gold pop" style="--d: 0.10s;">
+                <span class="ctag">BHIMA e-Gold</span>
+                <span class="ccon">&#8377;100 vs Gold Price</span>
+                <span class="chook">&ldquo;Gold is expensive. Starting isn't.&rdquo;</span>
+                <span class="ccta">Start Saving Gold &rarr;</span>
+              </div>
+              <div class="crt gold pop" style="--d: 0.20s;">
+                <span class="ctag">BHIMA e-Gold</span>
+                <span class="ccon">Coffee or Gold?</span>
+                <span class="chook">&ldquo;One coffee disappears in 20 minutes. The same &#8377;100 can start your gold habit.&rdquo;</span>
+                <span class="ccta">Choose Your &#8377;100 &rarr;</span>
+              </div>
+              <div class="crt gold pop" style="--d: 0.30s;">
+                <span class="ctag">BHIMA e-Gold</span>
+                <span class="ccon">Paati's Hundiyal, Your Phone</span>
+                <span class="chook">&ldquo;Paati saved money in a hundiyal. You can build gold on your phone.&rdquo;</span>
+                <span class="ccta">Start a New Tradition &rarr;</span>
+              </div>
+              <div class="crt silver pop" style="--d: 0.40s;">
+                <span class="ctag">BHIMA e-Silver</span>
+                <span class="ccon">Digital Today. Real Silver Tomorrow.</span>
+                <span class="chook">&ldquo;Digital today. Real silver tomorrow.&rdquo;</span>
+                <span class="ccta">Start Saving &rarr;</span>
+              </div>
+              <div class="crt silver pop" style="--d: 0.50s;">
+                <span class="ctag">BHIMA e-Silver</span>
+                <span class="ccon">Baby's First Silver Gift</span>
+                <span class="chook">&ldquo;A tiny silver gift for a tiny new beginning.&rdquo;</span>
+                <span class="ccta">Build the Gift &rarr;</span>
+              </div>
+              <div class="crt silver pop" style="--d: 0.60s;">
+                <span class="ctag">BHIMA e-Silver</span>
+                <span class="ccon">Freelancer's Silver Habit</span>
+                <span class="chook">&ldquo;Income changes every month. Your silver saving can stay flexible.&rdquo;</span>
+                <span class="ccta">Start Flexible Saving &rarr;</span>
+              </div>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Angles I covered</h4></div><div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="chip pop" style="--d: 0.10s; background: #EBD5C6; color: #5A1010;">Easy start from &#8377;100</span><span class="chip pop" style="--d: 0.15s; background: #EBD5C6; color: #5A1010;">Wedding goals</span><span class="chip pop" style="--d: 0.20s; background: #EBD5C6; color: #5A1010;">Festival planning</span><span class="chip pop" style="--d: 0.25s; background: #EBD5C6; color: #5A1010;">First salary</span><span class="chip pop" style="--d: 0.30s; background: #EBD5C6; color: #5A1010;">Gifting</span><span class="chip pop" style="--d: 0.35s; background: #EBD5C6; color: #5A1010;">Daily habit</span><span class="chip pop" style="--d: 0.40s; background: #EBD5C6; color: #5A1010;">Gamified challenges</span><span class="chip pop" style="--d: 0.45s; background: #EBD5C6; color: #5A1010;">Progress tracking</span><span class="chip pop" style="--d: 0.50s; background: #EBD5C6; color: #5A1010;">100 years of Bhima trust</span><span class="chip pop" style="--d: 0.55s; background: #EBD5C6; color: #5A1010;">Digital to real jewellery</span></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal wmodal" id="w-rjr" role="dialog" aria-modal="true" aria-labelledby="w-rjr-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Landing page plan</span>
+          <h3 id="w-rjr-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">RJR HERBAL HOSPITALS</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">Asthma treatment landing page for Andhra Pradesh</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">A landing page plan for RJR Herbal Hospitals' asthma treatment, built for Google Ads leads from 11 cities in Andhra Pradesh. I mapped every section: what it says, the trust signals it shows and where the booking forms and call buttons sit.</p>
+          <div class="kpis">
+            <div class="kpi pop" style="--d: 0.05s;"><span class="num" data-count="16" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">16</span><span class="lbl">Page sections planned</span></div>
+            <div class="kpi pop" style="--d: 0.13s;"><span class="num" data-count="11" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">11</span><span class="lbl">Cities targeted</span></div>
+            <div class="kpi pop" style="--d: 0.21s;"><span class="num" data-count="8" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">8</span><span class="lbl">Types of asthma covered</span></div>
+            <div class="kpi pop" style="--d: 0.29s;"><span class="num" data-count="8" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">8</span><span class="lbl">FAQs written</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">The page, section by section</h4></div><div class="lpwrap">
+              <div class="phone pop" aria-hidden="true">
+                <div class="screen"><div class="scroller">
+                  <div class="wf-bar" style="background: #C8102E;"></div>
+                  <div class="wf-hero" style="background: linear-gradient(135deg, #C8102E, #8E0B20);"><b>Natural Siddha &amp; Ayurvedic Care for Asthma</b><i></i><i class="short"></i><span>Book an Appointment</span></div>
+                  <div class="wf-row"><i></i><i></i><i></i></div>
+                  <div class="wf-title"></div><div class="wf-text"></div><div class="wf-text short"></div>
+                  <div class="wf-grid"><i></i><i></i><i></i><i></i></div>
+                  <div class="wf-title"></div><div class="wf-card"></div><div class="wf-card"></div>
+                  <div class="wf-steps"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="wf-video"></div>
+                  <div class="wf-grid"><i></i><i></i><i></i><i></i></div>
+                  <div class="wf-title"></div><div class="wf-acc"></div><div class="wf-acc"></div><div class="wf-acc"></div>
+                  <div class="wf-hero" style="background: #1F1F1F; min-height: 70px;"><span>Call Now</span></div>
+                </div></div>
+              </div><ol class="slist"><li class="pop" style="--d: 0.08s;">Header with call, WhatsApp, email</li><li class="pop" style="--d: 0.13s;">Hero with enquiry form</li><li class="pop" style="--d: 0.18s;">Trust strip</li><li class="pop" style="--d: 0.23s;">What is asthma</li><li class="pop" style="--d: 0.28s;">Types of asthma treated</li><li class="pop" style="--d: 0.33s;">Why RJR</li><li class="pop" style="--d: 0.38s;">Treatment approach</li><li class="pop" style="--d: 0.43s;">Treatment journey</li><li class="pop" style="--d: 0.48s;">Patient video stories</li><li class="pop" style="--d: 0.53s;">Testimonials</li><li class="pop" style="--d: 0.58s;">Meet the doctors</li><li class="pop" style="--d: 0.63s;">Branches in Andhra Pradesh</li><li class="pop" style="--d: 0.68s;">FAQs</li><li class="pop" style="--d: 0.73s;">Second enquiry form</li><li class="pop" style="--d: 0.78s;">Footer</li><li class="pop" style="--d: 0.83s;">Sticky enquiry widget</li></ol>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Cities the page targets</h4></div><div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="chip pop" style="--d: 0.10s; background: #EBD5C6; color: #5A1010;">Vijayawada</span><span class="chip pop" style="--d: 0.15s; background: #EBD5C6; color: #5A1010;">Visakhapatnam</span><span class="chip pop" style="--d: 0.20s; background: #EBD5C6; color: #5A1010;">Guntur</span><span class="chip pop" style="--d: 0.25s; background: #EBD5C6; color: #5A1010;">Nellore</span><span class="chip pop" style="--d: 0.30s; background: #EBD5C6; color: #5A1010;">Tirupati</span><span class="chip pop" style="--d: 0.35s; background: #EBD5C6; color: #5A1010;">Rajahmundry</span><span class="chip pop" style="--d: 0.40s; background: #EBD5C6; color: #5A1010;">Kadapa</span><span class="chip pop" style="--d: 0.45s; background: #EBD5C6; color: #5A1010;">Ongole</span><span class="chip pop" style="--d: 0.50s; background: #EBD5C6; color: #5A1010;">Anantapur</span><span class="chip pop" style="--d: 0.55s; background: #EBD5C6; color: #5A1010;">Bhimavaram</span><span class="chip pop" style="--d: 0.60s; background: #EBD5C6; color: #5A1010;">Vizianagaram</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Built to convert</h4></div><div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="chip pop" style="--d: 0.10s; background: #FFFFFF; color: #7A1414;">2 enquiry forms + sticky widget</span><span class="chip pop" style="--d: 0.15s; background: #FFFFFF; color: #7A1414;">Branch and concern dropdowns</span><span class="chip pop" style="--d: 0.20s; background: #FFFFFF; color: #7A1414;">Call and WhatsApp in the header</span><span class="chip pop" style="--d: 0.25s; background: #FFFFFF; color: #7A1414;">Book an Appointment after key sections</span><span class="chip pop" style="--d: 0.30s; background: #FFFFFF; color: #7A1414;">Doctor and branch cards</span><span class="chip pop" style="--d: 0.35s; background: #FFFFFF; color: #7A1414;">"Results may vary" disclaimer</span></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal wmodal" id="w-jains" role="dialog" aria-modal="true" aria-labelledby="w-jains-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">Landing page wireframe</span>
+          <h3 id="w-jains-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">JAINS ARUNIKA</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">Wireframe for a 2 &amp; 3 BHK project in Pallavaram</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">Jains Arunika is a 2 &amp; 3 BHK project in Pallavaram, Chennai, by Jain Housing. I planned the landing page wireframe, using Jain Housing's own Perungudi project page and Casagrand's Pallavaram page as benchmarks.</p>
+          <div class="kpis">
+            <div class="kpi pop" style="--d: 0.05s;"><span class="num" data-count="12" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">12</span><span class="lbl">Page sections</span></div>
+            <div class="kpi pop" style="--d: 0.13s;"><span class="num" data-count="5" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">5</span><span class="lbl">Key USPs</span></div>
+            <div class="kpi pop" style="--d: 0.21s;"><span class="num" data-count="3" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">3</span><span class="lbl">Amenity levels</span></div>
+            <div class="kpi pop" style="--d: 0.29s;"><span class="num" data-count="2" data-dec="0" data-prefix="" data-suffix="" style="font-size: 34px; color: #7A1414;">2</span><span class="lbl">Enquiry forms</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">The wireframe</h4><span class="bnote">12 sections, top to bottom</span></div>
+            <div class="browser pop">
+              <div class="bbar"><i></i><i></i><i></i><span>jainsarunika.in</span></div>
+              <div class="bpage"><div class="wfb h1 pop" style="--d: 0.10s;"><span>Header</span></div><div class="wfb h3 pop" style="--d: 0.19s;"><span>Hero render + USP tags</span></div><div class="wfb h1 pop" style="--d: 0.28s;"><span>Enquiry form</span></div><div class="wfb h2 pop" style="--d: 0.37s;"><span>About Jain Housing: stats + awards</span></div><div class="wfb h2 pop" style="--d: 0.46s;"><span>Project overview</span></div><div class="wfb h2 pop" style="--d: 0.55s;"><span>Why choose Arunika</span></div><div class="wfb h2 pop" style="--d: 0.64s;"><span>Location advantage + map</span></div><div class="wfb h2 pop" style="--d: 0.73s;"><span>Amenities by level</span></div><div class="wfb h2 pop" style="--d: 0.82s;"><span>Floor plans + area table</span></div><div class="wfb h2 pop" style="--d: 0.91s;"><span>Specifications</span></div><div class="wfb h2 pop" style="--d: 1.00s;"><span>Gallery</span></div><div class="wfb h1 pop" style="--d: 1.09s;"><span>Second enquiry + footer</span></div></div>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">Why Choose Arunika: the USP grid</h4></div><div class="usps"><div class="usp pop" style="--d: 0.10s;"><span>01</span>Backed by 39 years of Jain Housing</div><div class="usp pop" style="--d: 0.18s;"><span>02</span>A location headed forward</div><div class="usp pop" style="--d: 0.26s;"><span>03</span>Room-by-room planned homes</div><div class="usp pop" style="--d: 0.34s;"><span>04</span>Amenities designed by level</div><div class="usp pop" style="--d: 0.42s;"><span>05</span>Full specification transparency</div></div>
+          </div>
+      </div>
+    </div>
+  </div>
 
   <!-- flying cursor: plane + trail, moved by the script below -->
   <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
@@ -1304,7 +1868,7 @@ class Component extends DCLogic {
       void m.offsetWidth; m.classList.add('open');
       if (!m.classList.contains('inline')) html.classList.add('lock');
       const x = m.querySelector('.xbtn'); if (x) setTimeout(() => x.focus(), 60);
-      const sel = m.querySelector('.panel:not([hidden])'); if (sel) Array.prototype.forEach.call(sel.querySelectorAll('[data-count]'), (n) => { n._counted = false; runCount(n); });
+      const sel = m.querySelector('.panel:not([hidden])') || m; Array.prototype.forEach.call(sel.querySelectorAll('[data-count]'), (n) => { n._counted = false; setTimeout(() => runCount(n), 250); });
     };
     const selectTab = (m, key) => {
       Array.prototype.forEach.call(m.querySelectorAll('[data-tab]'), (t) => t.setAttribute('aria-selected', t.getAttribute('data-tab') === key ? 'true' : 'false'));
