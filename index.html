@@ -397,6 +397,67 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
     }
+
+    /* ---- AI creatives ---- */
+    .aic { margin: 0 44px 36px; padding: 24px 26px; border-radius: 22px; background: linear-gradient(135deg, rgba(0,0,0,0.24), rgba(0,0,0,0.08)); border: 1px solid rgba(251,243,231,0.16); display: flex; flex-direction: column; gap: 22px; }
+    .aic-row { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 34px; }
+    .aic-fan { position: relative; width: 260px; height: 156px; flex: 0 0 260px; }
+    .aic-fan img { position: absolute; top: 8px; left: calc(var(--i) * 42px); width: 84px; height: 148px; object-fit: cover; object-position: top; border-radius: 12px; border: 2px solid #FBF3E7; box-shadow: 0 10px 22px rgba(0,0,0,0.35); transform: rotate(calc((var(--i) - 2) * 5deg)); transition: transform 0.4s cubic-bezier(.2,.8,.2,1); }
+    .aic-fan img.feed { height: 84px; width: 84px; top: 40px; }
+    .aic:hover .aic-fan img { transform: rotate(calc((var(--i) - 2) * 9deg)) translateY(calc(var(--i) * -2px - 6px)); }
+    .aic-txt { display: flex; flex-direction: column; gap: 8px; flex: 1 1 260px; }
+    .aic-eb { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #F0C6C1; }
+    .aic-txt h5 { margin: 0; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.12; color: #FBF3E7; }
+    .aic-btn { align-self: flex-start; margin-top: 8px; font: inherit; border: 0; display: inline-flex; align-items: center; gap: 10px; background: #FBF3E7; color: #7A1414; font-weight: 700; font-size: 16px; padding: 15px 26px; border-radius: 999px; cursor: pointer; position: relative; overflow: hidden; }
+    .aic-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(122,20,20,0.18) 50%, transparent 70%); transform: translateX(-100%); animation: aicSheen 2.8s ease-in-out infinite; }
+    @keyframes aicSheen { 60%, 100% { transform: translateX(100%); } }
+    .aic-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .aic-steps div { background: rgba(251,243,231,0.08); border: 1px solid rgba(251,243,231,0.12); border-radius: 16px; padding: 14px 16px; }
+    .aic-steps b { display: block; font-size: 14px; color: #FBF3E7; margin-bottom: 4px; }
+    .aic-steps p { margin: 0; font-size: 13.5px; line-height: 1.55; color: #F3DED9; }
+    .aiflow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; }
+    .aif { flex: 1 1 200px; background: #FFF8EF; border: 1px solid rgba(122,20,20,0.14); border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+    .aif-n { font-family: "Archivo Black", sans-serif; font-size: 13px; color: #FBF3E7; background: #7A1414; border-radius: 999px; align-self: flex-start; padding: 3px 10px; }
+    .aif b { font-size: 17px; color: #241512; } .aif p { margin: 0; font-size: 14px; line-height: 1.55; color: #4A3831; }
+    .aif-arrow { align-self: center; font-style: normal; font-size: 22px; color: #7A1414; }
+    .aimodal .sheet { max-width: 1180px; }
+    .aic-filters { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 18px; margin-bottom: 18px; }
+    .aic-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .aic-chip { font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer; border: 1px solid rgba(122,20,20,0.25); background: #FFF8EF; color: #5A1010; padding: 8px 14px; border-radius: 999px; transition: background 0.2s, color 0.2s, transform 0.2s; }
+    .aic-chip:hover { transform: translateY(-1px); }
+    .aic-chip.on { background: #7A1414; color: #FBF3E7; border-color: #7A1414; }
+    .aig { columns: 4 200px; column-gap: 16px; }
+    .aig-item { all: unset; box-sizing: border-box; cursor: zoom-in; display: inline-flex; width: 100%; flex-direction: column; gap: 7px; margin: 0 0 18px; break-inside: avoid; opacity: 0; transform: translateY(14px) scale(0.97); }
+    .aig-item.hide { display: none; }
+    .wblock.seen .aig-item { animation: aigIn 0.55s cubic-bezier(.2,.8,.2,1) var(--d) forwards; }
+    .aig-item.flash { animation: aigIn 0.4s cubic-bezier(.2,.8,.2,1) forwards !important; }
+    @keyframes aigIn { to { opacity: 1; transform: none; } }
+    .aig-img { position: relative; display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 18px rgba(42,18,16,0.18); transition: transform 0.3s, box-shadow 0.3s; }
+    .aig-img img { display: block; width: 100%; height: auto; }
+    .aig-img em { position: absolute; left: 8px; top: 8px; font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; background: rgba(36,21,18,0.78); color: #FBF3E7; padding: 4px 8px; border-radius: 999px; opacity: 0; transition: opacity 0.25s; }
+    .aig-item:hover .aig-img, .aig-item:focus-visible .aig-img { transform: translateY(-4px); box-shadow: 0 16px 28px rgba(42,18,16,0.28); }
+    .aig-item:hover .aig-img em, .aig-item:focus-visible .aig-img em { opacity: 1; }
+    .aig-item:focus-visible .aig-img { outline: 3px solid #7A1414; outline-offset: 3px; }
+    .aig-cap { font-size: 13px; font-weight: 600; line-height: 1.35; color: #5A1010; }
+    .aic-lb { position: fixed; inset: 0; z-index: 2147483000; background: rgba(20,8,6,0.93); display: none; align-items: center; justify-content: center; gap: 18px; padding: 20px; }
+    .aic-lb.on { display: flex; animation: lbIn 0.25s ease-out; }
+    @keyframes lbIn { from { opacity: 0; } to { opacity: 1; } }
+    .aic-lb figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .aic-lb img { max-height: 84vh; max-width: min(84vw, 900px); border-radius: 14px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .aic-lb figcaption { color: #FBF3E7; font-size: 15px; font-weight: 600; text-align: center; }
+    .aic-lb button { font: inherit; border: 0; cursor: pointer; background: #FBF3E7; color: #7A1414; width: 46px; height: 46px; flex: 0 0 46px; border-radius: 50%; font-size: 22px; font-weight: 700; }
+    .aic-lb .lb-x { position: absolute; top: 18px; right: 18px; }
+    @media (max-width: 760px) {
+      .aic { margin: 0 18px 26px; padding: 20px 18px; } .aic-steps { grid-template-columns: 1fr; } .aic-fan { width: 240px; flex-basis: 240px; }
+      .aig { columns: 2; column-gap: 12px; } .aif-arrow { transform: rotate(90deg); width: 100%; text-align: center; }
+      .aic-lb { padding: 64px 12px 90px; } .aic-lb .lb-nav { position: absolute; bottom: 22px; } .aic-lb .lb-prev { left: calc(50% - 62px); } .aic-lb .lb-next { right: calc(50% - 62px); }
+      .aig-img em { display: none; }
+      .aic-filters { flex-direction: column; gap: 8px; margin: 0 -18px 16px; }
+      .aic-chips { flex-wrap: nowrap; overflow-x: auto; padding: 2px 18px 6px; scrollbar-width: none; }
+      .aic-chips::-webkit-scrollbar { display: none; }
+      .aic-chip { flex: 0 0 auto; font-size: 13px; padding: 7px 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .aig-item { opacity: 1; transform: none; animation: none !important; } .aic-btn::after { animation: none; } }
   </style>
 
 
@@ -658,6 +719,21 @@
           </div>
           <figcaption style="font-size: 14px; line-height: 1.55; color: #F3DED9;"><strong style="color: #FBF3E7;">Outlined: the two ad sets I built</strong>, new_creatives_students (5 purchases) and Freelancers / Business owners (MBA) (24 purchases at &#8377;1,579.88 each).</figcaption>
         </figure>
+        <div class="aic rv">
+          <div class="aic-row">
+            <div class="aic-fan" aria-hidden="true"><img src="images/aic_RJ1X1-12.webp" alt="" class="feed" style="--i: 0;"><img src="images/aic_RJ916-01-vintage.webp" alt="" class="story" style="--i: 1;"><img src="images/aic_RJ916-08.webp" alt="" class="story" style="--i: 2;"><img src="images/aic_RJ1X1-03.webp" alt="" class="feed" style="--i: 3;"><img src="images/aic_RJ916-16.webp" alt="" class="story" style="--i: 4;"></div>
+            <div class="aic-txt">
+              <span class="aic-eb">My AI creatives for this campaign</span>
+              <h5 class="display">Ad creatives, made in bulk with AI</h5>
+              <button type="button" class="btn aic-btn" data-open="w-aic">See the AI creatives <span aria-hidden="true">&rarr;</span></button>
+            </div>
+          </div>
+          <div class="aic-steps">
+            <div><b>01 &middot; Claude Code</b><p>Turned the course content into hooks, headlines and ad copy for business owners, agency owners and freelancers.</p></div>
+            <div><b>02 &middot; Antigravity</b><p>An agent I built pairs each audience with an angle and an offer, writes the image prompts and runs them in batches.</p></div>
+            <div><b>03 &middot; ChatGPT</b><p>Generated the visuals from Rishi&rsquo;s reference photos. I checked every image and redid the ones that missed.</p></div>
+          </div>
+        </div>
         <div class="sec-x" style="padding-top: 14px; padding-bottom: 16px; background: rgba(0,0,0,0.2); font-size: 13px; line-height: 1.5; color: #E8D2CC;">Campaign results from Meta Ads Manager, 18 Aug &ndash; 16 Sep 2026. Account details cropped out.</div>
       </article>
     
@@ -1950,6 +2026,80 @@
       </div>
     </div>
   </div>
+  <div class="modal wmodal aimodal" id="w-aic" role="dialog" aria-modal="true" aria-labelledby="w-aic-t" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <div class="sheet">
+      <div class="mhead" style="position: sticky; top: 0; z-index: 2; background: #F6EEE3; padding: 24px 30px 18px; border-bottom: 1px solid rgba(122,20,20,0.12); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span class="script" style="font-size: 26px; line-height: 1; color: #7A1414;">AI creatives</span>
+          <h3 id="w-aic-t" class="display" style="margin: 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.1; color: #241512;">CLAUDE IS MY COFOUNDER</h3>
+          <span class="msub" style="font-size: 14px; line-height: 1.5; color: #4A3831;">Meta ad creatives for Rishi Jain&rsquo;s course, made with Claude Code, Antigravity and ChatGPT</span>
+        </div>
+        <button type="button" class="xbtn" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="mbody" style="padding: 26px 30px 34px; display: flex; flex-direction: column; gap: 26px;">
+          <p class="pop" style="margin: 0; font-size: 16px; line-height: 1.65; color: #3A2A24;">The Meta Ads campaign needed a lot of fresh creatives for every ad set. Instead of designing each one by hand, I connected three AI tools into one workflow and produced the creatives in bulk, in story and feed sizes, then reviewed every image before it went into an ad set.</p>
+          <div class="kpis">
+            <div class="kpi pop"><span class="num" data-count="3">3</span><span class="lbl">AI tools connected</span></div>
+            <div class="kpi pop"><span class="num" data-count="3">3</span><span class="lbl">Audiences, each with its own angle</span></div>
+            <div class="kpi pop"><span class="num" data-count="2">2</span><span class="lbl">Ad formats: story and feed</span></div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">How I made them</h4><span class="bnote">One workflow, three tools</span></div>
+            <div class="aiflow">
+              <div class="aif"><span class="aif-n">01</span><b>Claude Code</b><p>Read the course content and wrote hooks, headlines and ad copy for each audience: business owners, agency owners and freelancers.</p></div>
+              <i class="aif-arrow" aria-hidden="true">&rarr;</i>
+              <div class="aif"><span class="aif-n">02</span><b>Antigravity</b><p>An agent I built pairs each audience with an angle and an offer, writes the image prompt for every pair and runs them in batches.</p></div>
+              <i class="aif-arrow" aria-hidden="true">&rarr;</i>
+              <div class="aif"><span class="aif-n">03</span><b>ChatGPT</b><p>Generated the images from Rishi&rsquo;s reference photos. I checked faces, spelling and brand fit, and regenerated the ones that missed.</p></div>
+            </div>
+          </div>
+          <div class="wblock pop">
+            <div class="bhead"><h4 class="display">The creatives</h4><span class="bnote">Tap any creative to see it full size</span></div>
+            <div class="aic-filters">
+              <div class="aic-chips" role="group" aria-label="Filter by audience"><button type="button" class="aic-chip on" data-aif="all">All</button><button type="button" class="aic-chip" data-aif="biz">Business owners &amp; freelancers</button><button type="button" class="aic-chip" data-aif="agency">Agency owners</button><button type="button" class="aic-chip" data-aif="ai">Agentic AI explained</button></div>
+              <div class="aic-chips" role="group" aria-label="Filter by format"><button type="button" class="aic-chip on" data-aff="all">Both formats</button><button type="button" class="aic-chip" data-aff="story">Story 9:16</button><button type="button" class="aic-chip" data-aff="feed">Feed 1:1</button></div>
+            </div>
+            <div class="aig">
+              <button type="button" class="aig-item story" data-aud="biz" data-fmt="story" data-lb="images/aic_RJ916-01.webp" style="--d: 0.00s;"><span class="aig-img"><img src="images/aic_RJ916-01.webp" alt="Ad creative: Business owners: meet your AI cofounder" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Business owners: meet your AI cofounder</span></button>
+              <button type="button" class="aig-item story" data-aud="agency" data-fmt="story" data-lb="images/aic_RJ916-11.webp" style="--d: 0.04s;"><span class="aig-img"><img src="images/aic_RJ916-11.webp" alt="Ad creative: Agency owners: your next hire could be AI" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Agency owners: your next hire could be AI</span></button>
+              <button type="button" class="aig-item story" data-aud="ai" data-fmt="story" data-lb="images/aic_RJ916-09.webp" style="--d: 0.09s;"><span class="aig-img"><img src="images/aic_RJ916-09.webp" alt="Ad creative: I thought ChatGPT was enough" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">I thought ChatGPT was enough</span></button>
+              <button type="button" class="aig-item feed" data-aud="biz" data-fmt="feed" data-lb="images/aic_RJ1X1-10.webp" style="--d: 0.14s;"><span class="aig-img"><img src="images/aic_RJ1X1-10.webp" alt="Ad creative: Your business + an AI cofounder" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">Your business + an AI cofounder</span></button>
+              <button type="button" class="aig-item feed" data-aud="agency" data-fmt="feed" data-lb="images/aic_RJ1X1-12.webp" style="--d: 0.18s;"><span class="aig-img"><img src="images/aic_RJ1X1-12.webp" alt="Ad creative: Your real competitor isn&rsquo;t another agency" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">Your real competitor isn&rsquo;t another agency</span></button>
+              <button type="button" class="aig-item feed" data-aud="ai" data-fmt="feed" data-lb="images/aic_RJ1X1-03.webp" style="--d: 0.22s;"><span class="aig-img"><img src="images/aic_RJ1X1-03.webp" alt="Ad creative: You&rsquo;re using Claude like a chatbot" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">You&rsquo;re using Claude like a chatbot</span></button>
+              <button type="button" class="aig-item story" data-aud="biz" data-fmt="story" data-lb="images/aic_RJ916-08.webp" style="--d: 0.27s;"><span class="aig-img"><img src="images/aic_RJ916-08.webp" alt="Ad creative: Can your business handle 2X customers?" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Can your business handle 2X customers?</span></button>
+              <button type="button" class="aig-item story" data-aud="agency" data-fmt="story" data-lb="images/aic_RJ916-12.webp" style="--d: 0.32s;"><span class="aig-img"><img src="images/aic_RJ916-12.webp" alt="Ad creative: Your agency isn&rsquo;t overloaded with clients" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Your agency isn&rsquo;t overloaded with clients</span></button>
+              <button type="button" class="aig-item story" data-aud="ai" data-fmt="story" data-lb="images/aic_RJ916-06.webp" style="--d: 0.36s;"><span class="aig-img"><img src="images/aic_RJ916-06.webp" alt="Ad creative: Chatbot vs AI agent" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Chatbot vs AI agent</span></button>
+              <button type="button" class="aig-item feed" data-aud="biz" data-fmt="feed" data-lb="images/aic_RJ1X1-09.webp" style="--d: 0.40s;"><span class="aig-img"><img src="images/aic_RJ1X1-09.webp" alt="Ad creative: I don&rsquo;t need more AI tools" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">I don&rsquo;t need more AI tools</span></button>
+              <button type="button" class="aig-item feed" data-aud="agency" data-fmt="feed" data-lb="images/aic_RJ1X1-20.webp" style="--d: 0.45s;"><span class="aig-img"><img src="images/aic_RJ1X1-20.webp" alt="Ad creative: The AI-powered agency is here" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">The AI-powered agency is here</span></button>
+              <button type="button" class="aig-item feed" data-aud="ai" data-fmt="feed" data-lb="images/aic_RJ1X1-13.webp" style="--d: 0.49s;"><span class="aig-img"><img src="images/aic_RJ1X1-13.webp" alt="Ad creative: AI content &ne; AI automation" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">AI content &ne; AI automation</span></button>
+              <button type="button" class="aig-item story" data-aud="biz" data-fmt="story" data-lb="images/aic_RJ916-01-bold-v3.webp" style="--d: 0.54s;"><span class="aig-img"><img src="images/aic_RJ916-01-bold-v3.webp" alt="Ad creative: Meet your AI cofounder &middot; poster style" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Meet your AI cofounder &middot; poster style</span></button>
+              <button type="button" class="aig-item story" data-aud="agency" data-fmt="story" data-lb="images/aic_RJ916-16.webp" style="--d: 0.58s;"><span class="aig-img"><img src="images/aic_RJ916-16.webp" alt="Ad creative: Traditional vs AI-powered agency" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Traditional vs AI-powered agency</span></button>
+              <button type="button" class="aig-item story" data-aud="ai" data-fmt="story" data-lb="images/aic_RJ916-04.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-04.webp" alt="Ad creative: The real AI advantage isn&rsquo;t another tool" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">The real AI advantage isn&rsquo;t another tool</span></button>
+              <button type="button" class="aig-item feed" data-aud="biz" data-fmt="feed" data-lb="images/aic_RJ1X1-11.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ1X1-11.webp" alt="Ad creative: Freelancers: stop selling your time" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">Freelancers: stop selling your time</span></button>
+              <button type="button" class="aig-item feed" data-aud="agency" data-fmt="feed" data-lb="images/aic_RJ1X1-14.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ1X1-14.webp" alt="Ad creative: The next service you sell could be AI" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">The next service you sell could be AI</span></button>
+              <button type="button" class="aig-item feed" data-aud="ai" data-fmt="feed" data-lb="images/aic_RJ1X1-04.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ1X1-04.webp" alt="Ad creative: The secret isn&rsquo;t better prompts" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">The secret isn&rsquo;t better prompts</span></button>
+              <button type="button" class="aig-item story" data-aud="biz" data-fmt="story" data-lb="images/aic_RJ916-10.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-10.webp" alt="Ad creative: Imagine an AI workforce behind your business" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Imagine an AI workforce behind your business</span></button>
+              <button type="button" class="aig-item story" data-aud="agency" data-fmt="story" data-lb="images/aic_RJ916-13.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-13.webp" alt="Ad creative: Still using AI for captions and content?" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Still using AI for captions and content?</span></button>
+              <button type="button" class="aig-item story" data-aud="ai" data-fmt="story" data-lb="images/aic_RJ916-03.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-03.webp" alt="Ad creative: Still using AI just to write content?" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Still using AI just to write content?</span></button>
+              <button type="button" class="aig-item story" data-aud="biz" data-fmt="story" data-lb="images/aic_RJ916-02-v2.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-02-v2.webp" alt="Ad creative: Your biggest bottleneck isn&rsquo;t your team" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Your biggest bottleneck isn&rsquo;t your team</span></button>
+              <button type="button" class="aig-item feed" data-aud="agency" data-fmt="feed" data-lb="images/aic_RJ1X1-19.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ1X1-19.webp" alt="Ad creative: I wasn&rsquo;t short on clients, I was short on capacity" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">I wasn&rsquo;t short on clients, I was short on capacity</span></button>
+              <button type="button" class="aig-item feed" data-aud="ai" data-fmt="feed" data-lb="images/aic_RJ1X1-08.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ1X1-08.webp" alt="Ad creative: What if AI could actually do the work?" loading="lazy"><em>Feed 1:1</em></span><span class="aig-cap">What if AI could actually do the work?</span></button>
+              <button type="button" class="aig-item story" data-aud="biz" data-fmt="story" data-lb="images/aic_RJ916-01-vintage.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-01-vintage.webp" alt="Ad creative: Meet your AI cofounder &middot; vintage style" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Meet your AI cofounder &middot; vintage style</span></button>
+              <button type="button" class="aig-item story" data-aud="agency" data-fmt="story" data-lb="images/aic_RJ916-14.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-14.webp" alt="Ad creative: AI isn&rsquo;t just a tool you can use" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">AI isn&rsquo;t just a tool you can use</span></button>
+              <button type="button" class="aig-item story" data-aud="ai" data-fmt="story" data-lb="images/aic_RJ916-06-v2.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-06-v2.webp" alt="Ad creative: Chatbot vs AI agent &middot; dark style" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">Chatbot vs AI agent &middot; dark style</span></button>
+              <button type="button" class="aig-item story" data-aud="ai" data-fmt="story" data-lb="images/aic_RJ916-04-v2.webp" style="--d: 0.63s;"><span class="aig-img"><img src="images/aic_RJ916-04-v2.webp" alt="Ad creative: The real AI advantage &middot; newspaper style" loading="lazy"><em>Story 9:16</em></span><span class="aig-cap">The real AI advantage &middot; newspaper style</span></button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="aic-lb" id="aic-lb" aria-hidden="true" role="dialog" aria-label="Ad creative, full size">
+    <button type="button" class="lb-x" aria-label="Close full-size view">&times;</button>
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous creative">&larr;</button>
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <button type="button" class="lb-nav lb-next" aria-label="Next creative">&rarr;</button>
+  </div>
 
   <!-- flying cursor: plane + trail, moved by the script below -->
   <span class="fly-dot" aria-hidden="true" style="width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #F0A8A0; box-shadow: 0 0 0 1.5px rgba(122,20,20,0.85); z-index: 9998;"></span>
@@ -2156,6 +2306,43 @@ class Component extends DCLogic {
         nx.focus(); selectTab(openEl, nx.getAttribute('data-tab'));
       }
     });
+
+    /* AI creatives: audience/format filters + full-size viewer */
+    const aicGrid = document.querySelector('#w-aic .aig');
+    if (aicGrid) {
+      const items = Array.prototype.slice.call(aicGrid.querySelectorAll('.aig-item'));
+      let fAud = 'all', fFmt = 'all';
+      const applyF = () => items.forEach((it, i) => {
+        const show = (fAud === 'all' || it.dataset.aud === fAud) && (fFmt === 'all' || it.dataset.fmt === fFmt);
+        it.classList.toggle('hide', !show);
+        if (show) { it.classList.remove('flash'); void it.offsetWidth; it.classList.add('flash'); }
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('#w-aic .aic-chip'), (c) => on(c, 'click', () => {
+        const isAud = c.hasAttribute('data-aif');
+        Array.prototype.forEach.call(c.parentNode.querySelectorAll('.aic-chip'), (x) => x.classList.toggle('on', x === c));
+        if (isAud) fAud = c.getAttribute('data-aif'); else fFmt = c.getAttribute('data-aff');
+        applyF();
+      }));
+      const lb = document.getElementById('aic-lb'), lbImg = lb && lb.querySelector('img'), lbCap = lb && lb.querySelector('figcaption');
+      let k = 0, lbFrom = null;
+      const vis = () => items.filter((it) => !it.classList.contains('hide'));
+      const show = (i) => { const v = vis(); if (!v.length) return; k = (i + v.length) % v.length; const it = v[k];
+        lbImg.src = it.dataset.lb; lbImg.alt = it.querySelector('img').alt; lbCap.innerHTML = it.querySelector('.aig-cap').innerHTML; };
+      const openLb = (it) => { lbFrom = it; show(vis().indexOf(it)); lb.classList.add('on'); lb.setAttribute('aria-hidden', 'false'); setTimeout(() => lb.querySelector('.lb-x').focus(), 40); };
+      const closeLb = () => { lb.classList.remove('on'); lb.setAttribute('aria-hidden', 'true'); if (lbFrom && lbFrom.focus) lbFrom.focus(); };
+      if (lb) {
+        items.forEach((it) => on(it, 'click', () => openLb(it)));
+        on(lb.querySelector('.lb-x'), 'click', closeLb);
+        on(lb.querySelector('.lb-prev'), 'click', () => show(k - 1));
+        on(lb.querySelector('.lb-next'), 'click', () => show(k + 1));
+        on(lb, 'click', (e) => { if (e.target === lb) closeLb(); });
+        on(document, 'keydown', (e) => {
+          if (!lb.classList.contains('on')) return;
+          if (e.key === 'Escape') { e.stopPropagation(); e.preventDefault(); closeLb(); }
+          else if (e.key === 'ArrowRight') show(k + 1); else if (e.key === 'ArrowLeft') show(k - 1);
+        }, true);
+      }
+    }
 
     this._stopFx = () => {
       offs.forEach((f) => f());
